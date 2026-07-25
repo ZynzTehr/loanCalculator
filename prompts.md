@@ -243,6 +243,16 @@ Moving `report.html` into `html/report.html`, updating relative paths for CSS (`
 **Goal/Context:** 
 Replacing all `mo`/`mos` abbreviations with full `month`/`months` words in `html/report.html` and `js/report.js`, and adjusting `#reportTitle` to crisp white (`#ffffff`) and card section titles to vibrant monochromatic blue (`var(--blue-800)`) for high-contrast readability.
 
+---
+
+### Prompt 28: Extract Report Styles to External css/report.css File
+**Prompt:**
+> the css styles for report.html should be in it own css file in css folder, not inline within the html file
+
+**Goal/Context:** 
+Extracting all inline `<style>` block rules from `html/report.html` into a new dedicated stylesheet `css/report.css`, linking `<link rel="stylesheet" href="../css/report.css">` inside `html/report.html`, and keeping modular CSS architecture.
+
+
 
 
 
