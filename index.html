@@ -25,7 +25,7 @@
         <ul class="nav-links">
           <li><a href="#calculator" class="active">Calculator</a></li>
           <li><a href="#features">Features</a></li>
-          <li><a href="#faq">Guide</a></li>
+          <li><a href="#guide">Guide</a></li>
         </ul>
       </nav>
       <a href="#calculator" class="btn-primary">
@@ -87,7 +87,7 @@
           <div style="background: var(--blue-50); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--blue-200); margin-bottom: 1.5rem;">
             <span style="font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Estimated Monthly Payment</span>
             <div style="font-size: 2.5rem; font-weight: 800; color: var(--blue-800); line-height: 1.2; margin-top: 0.2rem;">
-              $466 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">/ mo</span>
+              $466 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">/ month</span>
             </div>
           </div>
 
@@ -125,27 +125,45 @@
               <button type="button" class="tab-btn" data-type="student">Student</button>
             </div>
 
-            <!-- Input 1: Loan Amount -->
+            <!-- Input 1: Loan Amount / Home Price / Vehicle Price -->
             <div class="form-group">
               <div class="form-label-row">
-                <label for="loanAmount" class="form-label">Loan Amount</label>
+                <label for="loanAmount" id="loanAmountLabel" class="form-label">Loan Amount</label>
                 <div class="input-number-wrapper">
                   <span class="input-prefix">$</span>
-                  <input type="number" id="loanAmount" class="form-input has-prefix" value="25000" min="1000" max="1000000" step="500">
+                  <input type="number" id="loanAmount" class="form-input has-prefix" value="15000" min="1000" max="50000" step="500">
                 </div>
               </div>
               <div class="slider-container">
-                <input type="range" id="loanAmountSlider" class="range-slider" value="25000" min="1000" max="1000000" step="500">
-                <div class="slider-limits">
+                <input type="range" id="loanAmountSlider" class="range-slider" value="15000" min="1000" max="50000" step="500">
+                <div class="slider-limits" id="loanAmountLimits">
                   <span>$1,000</span>
-                  <span>$1,000,000</span>
+                  <span>$50,000</span>
                 </div>
               </div>
-              <div class="presets-group">
-                <button type="button" class="preset-chip" data-amount="10000">$10,000</button>
-                <button type="button" class="preset-chip" data-amount="25000">$25,000</button>
-                <button type="button" class="preset-chip" data-amount="50000">$50,000</button>
-                <button type="button" class="preset-chip" data-amount="100000">$100,000</button>
+              <div class="presets-group" id="presetChipsContainer">
+                <!-- Dynamically populated per tab -->
+              </div>
+            </div>
+
+            <!-- Input 1.5: Down Payment (Mortgage & Auto) -->
+            <div class="form-group" id="downPaymentGroup" style="display: none;">
+              <div class="form-label-row">
+                <label for="downPayment" id="downPaymentLabel" class="form-label">Down Payment</label>
+                <div class="input-number-wrapper">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="downPayment" class="form-input has-prefix" value="0" min="0" max="500000" step="1000">
+                </div>
+              </div>
+              <div class="slider-container">
+                <input type="range" id="downPaymentSlider" class="range-slider" value="0" min="0" max="500000" step="1000">
+                <div class="slider-limits" id="downPaymentLimits">
+                  <span>$0</span>
+                  <span>$500,000</span>
+                </div>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.45rem; font-weight: 500;" id="netLoanNote">
+                Net Financing Principal: <strong id="netLoanAmountText" style="color: var(--blue-700);">$0</strong>
               </div>
             </div>
 
@@ -154,15 +172,15 @@
               <div class="form-label-row">
                 <label for="interestRate" class="form-label">Interest Rate (APR)</label>
                 <div class="input-number-wrapper">
-                  <input type="number" id="interestRate" class="form-input has-suffix" value="6.5" min="0.1" max="30" step="0.1">
+                  <input type="number" id="interestRate" class="form-input has-suffix" value="7.5" min="3.0" max="36.0" step="0.1">
                   <span class="input-suffix">%</span>
                 </div>
               </div>
               <div class="slider-container">
-                <input type="range" id="interestRateSlider" class="range-slider" value="6.5" min="0.1" max="30" step="0.1">
-                <div class="slider-limits">
-                  <span>0.1%</span>
-                  <span>30.0%</span>
+                <input type="range" id="interestRateSlider" class="range-slider" value="7.5" min="3.0" max="36.0" step="0.1">
+                <div class="slider-limits" id="interestRateLimits">
+                  <span>3.0%</span>
+                  <span>36.0%</span>
                 </div>
               </div>
             </div>
@@ -172,7 +190,7 @@
               <div class="form-label-row">
                 <label for="loanTerm" class="form-label">Loan Term</label>
                 <div style="display: flex; gap: 0.5rem; align-items: center;">
-                  <input type="number" id="loanTerm" class="form-input" value="5" min="1" max="40" step="1">
+                  <input type="number" id="loanTerm" class="form-input" value="3" min="1" max="7" step="1">
                   <select id="termUnit" class="form-input" style="width: 100px; padding-left: 0.5rem; padding-right: 0.5rem;">
                     <option value="years" selected>Years</option>
                     <option value="months">Months</option>
@@ -180,11 +198,14 @@
                 </div>
               </div>
               <div class="slider-container">
-                <input type="range" id="loanTermSlider" class="range-slider" value="5" min="1" max="40" step="1">
-                <div class="slider-limits">
+                <input type="range" id="loanTermSlider" class="range-slider" value="3" min="1" max="7" step="1">
+                <div class="slider-limits" id="loanTermLimits">
                   <span>1 Yr</span>
-                  <span>40 Yrs</span>
+                  <span>7 Yrs</span>
                 </div>
+              </div>
+              <div class="presets-group" id="termPresetsContainer">
+                <!-- Dynamically populated per tab -->
               </div>
             </div>
 
@@ -197,8 +218,17 @@
               <div class="monthly-payment-amount">
                 <span class="currency">$</span>
                 <span id="monthlyPayment">489</span>
+                <span id="monthlyPayment-text"> /month</span>
               </div>
               <p class="payment-subtext">Based on standard amortization rates</p>
+              <div id="tabDisclaimer" class="tab-disclaimer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span id="disclaimerText">Calculations do not include property taxes and insurance costs, as these vary depending on location.</span>
+              </div>
             </div>
 
             <!-- Visual Breakdown Progress Bar -->
@@ -277,6 +307,63 @@
             </div>
             <h3>Clear Interest Breakdown</h3>
             <p>Easily differentiate between principal repayment and cumulative interest costs across loan lifespans.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Financial Literacy Guide & FAQ Section -->
+    <section id="guide" class="guide-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Financial Literacy Guide</h2>
+          <p>Understand key borrowing concepts to make informed, confident financial decisions.</p>
+        </div>
+
+        <div class="accordion-container">
+          <div class="accordion-item">
+            <button type="button" class="accordion-header">
+              <span>How does loan amortization work?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Amortization is the process of spreading out a loan into equal payments over time. In early payments, a higher percentage goes toward interest because the remaining balance is large. As the balance decreases, a larger portion of each payment goes directly toward paying down the principal.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button type="button" class="accordion-header">
+              <span>What is the difference between Interest Rate and APR?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>The <strong>interest rate</strong> is the base percentage charged by the lender for borrowing money. <strong>APR (Annual Percentage Rate)</strong> includes the interest rate plus mandatory lender fees (such as origination fees), giving you a more complete picture of the total annual cost of borrowing.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button type="button" class="accordion-header">
+              <span>How does a down payment save you money?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>A down payment reduces the total principal you borrow upfront. Because interest is calculated on remaining principal, a larger down payment immediately lowers both your monthly payment and the total cumulative interest paid over the life of the loan.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button type="button" class="accordion-header">
+              <span>What hidden costs should I plan for by loan type?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <ul>
+                <li><strong>Mortgages:</strong> Property taxes, homeowners insurance, HOA dues, closing costs (2%–5%), and PMI (if down payment is under 20%).</li>
+                <li><strong>Auto Loans:</strong> State sales tax, vehicle registration/title fees, dealer documentation fees, and mandatory full-coverage insurance.</li>
+                <li><strong>Personal Loans:</strong> Origination fees (1%–8%) deducted upfront from payout, and late payment penalty fees.</li>
+                <li><strong>Student Loans:</strong> Interest capitalization during in-school or deferment periods and loan origination fees.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

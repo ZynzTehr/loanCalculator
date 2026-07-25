@@ -36,9 +36,39 @@ Iterating on UI layout based on browser DevTools testing to align header label s
 
 ---
 
-### Prompt 5: Color Restoration & CSS Selector Refinement
+### Prompt 5: Loan Category Separation Inquiry
 **Prompt:**
-> The color blue it had is gone now, it's white right now. Change the color back to the blue it was before, but keep the 2rem font-size.
+> is there a reason you chose to separate personal, mortgage, auto and student? they all have the same inputs. 
 
 **Goal/Context:** 
-Refining CSS targeting with an explicit class (`.results-label`) to ensure `color: var(--blue-300)` (`#93c5fd`) blue text color is preserved while retaining the `2rem` font size.
+Inquiring about why loan tabs exist when they all share identical input sliders and calculation formulas under the hood.
+
+---
+
+### Prompt 6: Dynamic & Distinct Loan Categories Feature
+**Prompt:**
+> Make each tab truly distinct & dynamic
+
+**Goal/Context:** 
+Transforming loan category tabs (Personal, Mortgage, Auto, Student) into distinct, dynamic calculator modes with custom ranges, tailored preset chips, term units (Years vs Months), and down payment input fields.
+
+---
+
+### Prompt 7: Mortgage Disclaimer Addition
+**Prompt:**
+> Include a disclaimer in the mortgage tab. It should say that calculations do not include property taxes and insurance costs since these change depending on location.
+
+**Goal/Context:** 
+Adding a location-based tax and insurance disclaimer box to the Mortgage tab for transparency and financial accuracy.
+
+---
+
+### Prompt 8: Comprehensive Financial Literacy Tab Disclaimers
+**Prompt:**
+> yes lets add them, i would like this application to be as helpful as posible when it is being used to help people with finantial leteracy.
+
+**Goal/Context:** 
+Expanding disclaimers dynamically across all loan tabs (Personal, Mortgage, Auto, Student) to educate users on real-world expenses like origination fees, sales tax/registration, property taxes/PMI, and in-school interest capitalization.
+
+
+
