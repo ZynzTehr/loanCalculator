@@ -33,3 +33,12 @@ Questioning design decisions and asking AI to explain typography choices (`0.75r
 
 **Goal/Context:** 
 Iterating on UI layout based on browser DevTools testing to align header label size (`2rem`) with the dollar sign currency symbol.
+
+---
+
+### Prompt 5: Color Restoration & CSS Selector Refinement
+**Prompt:**
+> The color blue it had is gone now, it's white right now. Change the color back to the blue it was before, but keep the 2rem font-size.
+
+**Goal/Context:** 
+Refining CSS targeting with an explicit class (`.results-label`) to ensure `color: var(--blue-300)` (`#93c5fd`) blue text color is preserved while retaining the `2rem` font size.
