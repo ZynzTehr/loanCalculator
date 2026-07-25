@@ -170,6 +170,25 @@ Explaining the design pattern behind iterative listener binding, mutually exclus
 **Goal/Context:** 
 Explaining why `window` is the only standard DOM entity emitting viewport `resize` events, and how recalculating pixel-based `translateX` offsets on window resize prevents responsive UI misalignment.
 
+---
+
+### Prompt 20: Technical Rationale for Default Function Parameters
+**Prompt:**
+> @[/Users/zynztehr/Desktop/loanCalculator/app.js:L172-L184] on this function, why did you include isFloat = false? just in case there is no value we have a default?
+
+**Goal/Context:** 
+Explaining how default parameter `isFloat = false` differentiates between integer parsing (`parseInt`) for loan amounts/terms and floating-point parsing (`parseFloat`) for interest rates.
+
+---
+
+### Prompt 21: Refactoring Redundant Function Call Arguments
+**Prompt:**
+> so why is the false included when calling teh function on line 186, 187 and 189 then?
+
+**Goal/Context:** 
+Refactoring `syncControlPair` function calls to remove redundant `false` arguments and rely directly on ES6 default parameter syntax.
+
+
 
 
 

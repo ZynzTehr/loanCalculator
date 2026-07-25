@@ -183,10 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  syncControlPair(loanAmountInput, loanAmountSlider, false);
-  syncControlPair(downPaymentInput, downPaymentSlider, false);
+  syncControlPair(loanAmountInput, loanAmountSlider);
+  syncControlPair(downPaymentInput, downPaymentSlider);
   syncControlPair(interestRateInput, interestRateSlider, true);
-  syncControlPair(loanTermInput, loanTermSlider, false);
+  syncControlPair(loanTermInput, loanTermSlider);
 
   if (termUnitSelect) {
     termUnitSelect.addEventListener('change', () => {
