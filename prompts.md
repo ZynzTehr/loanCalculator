@@ -143,6 +143,34 @@ Adding click handlers and an `IntersectionObserver` scroll-spy in JavaScript to 
 **Goal/Context:** 
 Adding smooth CSS `opacity` (fade-in) and `transform` transitions to `.accordion-content` so that text gracefully fades in when opening any Financial Literacy Guide accordion item.
 
+---
+
+### Prompt 17: Architectural Rationale for DOMContentLoaded Wrapper
+**Prompt:**
+> why did you choose to use only one function. document.addEventlistener('DOMContentLoaded')?
+
+**Goal/Context:** 
+Explaining the architectural advantages of wrapping application initialization inside `DOMContentLoaded` for guaranteed DOM node availability, closure encapsulation, one-time DOM element caching, and coordinated bootstrapping.
+
+---
+
+### Prompt 18: Architectural Rationale for Tab Event Dispatch
+**Prompt:**
+> why did you choose to do this in this particular manner? can you explain. (referencing tabBtns.forEach and dataset.type in app.js)
+
+**Goal/Context:** 
+Explaining the design pattern behind iterative listener binding, mutually exclusive active class toggling, decoupled indicator updates, and HTML data-attribute (`data-type`) configuration dispatch.
+
+---
+
+### Prompt 19: Architectural Rationale for Window Resize Listener
+**Prompt:**
+> why use a window event listener as supposed to another type? (referencing window.addEventListener('resize'))
+
+**Goal/Context:** 
+Explaining why `window` is the only standard DOM entity emitting viewport `resize` events, and how recalculating pixel-based `translateX` offsets on window resize prevents responsive UI misalignment.
+
+
 
 
 
