@@ -197,6 +197,17 @@ Refactoring `syncControlPair` function calls to remove redundant `false` argumen
 **Goal/Context:** 
 Setting `FinPulse` (brand logo) as the active navigation item when viewing the top/hero section (`id="hero"`), removing hardcoded active state on Calculator on page load, and adding CSS text-decoration underline formatting to the word `FinPulse` when active.
 
+---
+
+### Prompt 23: Financial Literacy Product Enhancements & GitHub Sync
+**Prompt:**
+> what suggestions would you have to improve this application as a financial literacy product?
+> lets push to github first and then give me the options again, so that if the changes are too much we can go back to the current state we are in. update prompts.md
+
+**Goal/Context:** 
+Formulating product enhancement options (Extra Payment Simulator, Amortization Schedule Chart, Financial Health DTI/PMI Indicators, Scenario Comparisons, and Inline Glossary Tooltips), updating prompt history, and syncing all commits to GitHub as a baseline checkpoint.
+
+
 
 
 
