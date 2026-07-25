@@ -194,12 +194,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Format Currency Helper
+  // Format Currency Helper (omits .00 when integer, displays up to 2 decimal places)
   function formatCurrency(amount) {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-      maximumFractionDigits: 0
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
+    }).format(amount);
+  }
+
+  // Format Number Helper (without currency symbol)
+  function formatNumber(amount) {
+    return new Intl.NumberFormat('en-US', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
     }).format(amount);
   }
 
@@ -384,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Update Results DOM
-    monthlyPaymentEl.textContent = Math.round(monthlyPayment).toLocaleString('en-US');
+    monthlyPaymentEl.textContent = formatNumber(monthlyPayment);
     totalPrincipalEl.textContent = formatCurrency(netPrincipal);
     totalInterestEl.textContent = formatCurrency(Math.max(0, totalInterest));
     totalPaymentEl.textContent = formatCurrency(Math.max(0, totalPayment));

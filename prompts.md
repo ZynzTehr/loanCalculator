@@ -97,6 +97,17 @@ Increasing transition duration (`0.85s`) and staggered delays (`0.15s`–`0.6s`)
 **Goal/Context:** 
 Reverting standard scroll reveal duration back to snappy `0.75s` to eliminate scroll lagginess, while reserving `0.85s` duration exclusively for the initial application hero load via `.initial-load`.
 
+---
+
+### Prompt 12: Dynamic Cents Formatting
+**Prompt:**
+> I went over the calculations you make for loan. although the are correct they do not show decimals. why did you choose that?
+> yes lets update to display decimals. but keep the number itself when decimals are 0, i.e 15,000 versus 15,000.00
+
+**Goal/Context:** 
+Updating number and currency formatters (`minimumFractionDigits: 0, maximumFractionDigits: 2`) to display up to 2 decimal places for cents while omitting `.00` on whole integer amounts.
+
+
 
 
 
