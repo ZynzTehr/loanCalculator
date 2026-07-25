@@ -428,19 +428,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // IntersectionObserver Scroll Reveal Animations
+  // IntersectionObserver Scroll Reveal Animations (Continuous Viewport Monitoring)
   const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-scale');
   if ('IntersectionObserver' in window && revealElements.length > 0) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove('is-visible');
         }
       });
     }, {
       threshold: 0.12,
-      rootMargin: '0px 0px -30px 0px'
+      rootMargin: '0px 0px -20px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));

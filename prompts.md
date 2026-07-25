@@ -79,6 +79,16 @@ Expanding disclaimers dynamically across all loan tabs (Personal, Mortgage, Auto
 **Goal/Context:** 
 Integrating JavaScript `IntersectionObserver` to trigger hardware-accelerated CSS scroll-reveal entrance animations and scale transitions as hero elements, calculator cards, feature grids, and guide items scroll into view.
 
+---
+
+### Prompt 10: Continuous Scroll Animation & Increased Delay
+**Prompt:**
+> lets increase the delay, and lets make it so that the items leave the screen when not in view
+
+**Goal/Context:** 
+Increasing transition duration (`0.85s`) and staggered delays (`0.15s`–`0.6s`), and removing one-shot unobserving so items exit (`is-visible` removed) and re-animate continuously as users scroll up and down.
+
+
 
 
 
