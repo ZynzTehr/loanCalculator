@@ -125,6 +125,17 @@ Updating currency formatters to dynamically set `minimumFractionDigits: 2` whene
 **Goal/Context:** 
 Adding smooth CSS keyframe cross-fade & slide transitions (`.tab-change-anim`) and active tab button scale effects when switching between Personal, Mortgage, Auto, and Student loan categories.
 
+---
+
+### Prompt 15: Sliding Active Tab Indicator & GitHub Sync
+**Prompt:**
+> i would like the transition for the personal, mortgage, auto, student loan tabs to be animated.
+> push to github
+
+**Goal/Context:** 
+Adding a responsive sliding background pill indicator (`.tab-indicator`) that glides smoothly beneath Personal, Mortgage, Auto, and Student tabs when clicked, combined with input container cross-fade slide transitions (`.tab-change-anim`), and pushing all commits to GitHub.
+
+
 
 
 

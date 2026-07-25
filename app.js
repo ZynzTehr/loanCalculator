@@ -424,14 +424,33 @@ document.addEventListener('DOMContentLoaded', () => {
     interestPercentText.textContent = `Interest (${interestPct}%)`;
   }
 
+  // Update Sliding Tab Indicator Position
+  function updateTabIndicator(activeBtn) {
+    const indicator = document.querySelector('.tab-indicator');
+    const tabsContainer = document.querySelector('.loan-type-tabs');
+    if (indicator && activeBtn && tabsContainer) {
+      const containerRect = tabsContainer.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      const offsetLeft = btnRect.left - containerRect.left;
+      indicator.style.transform = `translateX(${offsetLeft}px)`;
+      indicator.style.width = `${btnRect.width}px`;
+    }
+  }
+
   // Tab Switcher
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       tabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      updateTabIndicator(btn);
       const loanType = btn.dataset.type;
       applyLoanConfig(loanType);
     });
+  });
+
+  window.addEventListener('resize', () => {
+    const activeBtn = document.querySelector('.tab-btn.active');
+    if (activeBtn) updateTabIndicator(activeBtn);
   });
 
   // Accordion Interactive Logic for Guide Section
@@ -474,4 +493,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Default Personal Loan Config
   applyLoanConfig('personal');
+  const activeBtn = document.querySelector('.tab-btn.active');
+  if (activeBtn) updateTabIndicator(activeBtn);
 });
