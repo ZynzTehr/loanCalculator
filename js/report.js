@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let timeText = '';
     if (yearsSaved > 0 && remMonthsSaved > 0) {
-      timeText = `Pays off loan ${yearsSaved} yr${yearsSaved > 1 ? 's' : ''} & ${remMonthsSaved} mo${remMonthsSaved > 1 ? 's' : ''} earlier!`;
+      timeText = `Pays off loan ${yearsSaved} year${yearsSaved > 1 ? 's' : ''} & ${remMonthsSaved} month${remMonthsSaved > 1 ? 's' : ''} earlier!`;
     } else if (yearsSaved > 0) {
       timeText = `Pays off loan ${yearsSaved} year${yearsSaved > 1 ? 's' : ''} earlier!`;
     } else if (remMonthsSaved > 0) {
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     interestSavingsText.textContent = `Saves ${formatCurrency(interestSaved)} in total interest!`;
     timeSavingsText.textContent = timeText;
-    newTermText.textContent = `New loan duration: ${newYrs > 0 ? `${newYrs} yrs ` : ''}${newMos > 0 ? `${newMos} mos` : ''} (instead of ${calcState.loanTerm} ${calcState.termUnit}).`;
+    newTermText.textContent = `New loan duration: ${newYrs > 0 ? `${newYrs} year${newYrs > 1 ? 's' : ''} ` : ''}${newMos > 0 ? `${newMos} month${newMos > 1 ? 's' : ''}` : ''} (instead of ${calcState.loanTerm} ${calcState.termUnit}).`;
   }
 
   if (extraPaymentInput && extraPaymentSlider) {
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Option 4: Side-by-Side Scenario Comparison ---
   if (scenAPrincipal) scenAPrincipal.textContent = formatCurrency(netPrincipal);
   if (scenADetails) scenADetails.textContent = `${calcState.interestRate}% Interest | ${calcState.loanTerm} ${calcState.termUnit}`;
-  if (scenAPayment) scenAPayment.textContent = `${formatCurrency(baseline.monthlyPayment)} / mo`;
+  if (scenAPayment) scenAPayment.textContent = `${formatCurrency(baseline.monthlyPayment)} / month`;
   if (scenAInterest) scenAInterest.textContent = `Total Interest: ${formatCurrency(baseline.totalInterest)}`;
 
   function updateScenarioB() {
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const scenBMath = computeLoanMath(netPrincipal, scenBRate, scenBMonths);
 
-    scenBPayment.textContent = `${formatCurrency(scenBMath.monthlyPayment)} / mo`;
+    scenBPayment.textContent = `${formatCurrency(scenBMath.monthlyPayment)} / month`;
     scenBInterest.textContent = `Total Interest: ${formatCurrency(scenBMath.totalInterest)}`;
 
     const interestDiff = scenBMath.totalInterest - baseline.totalInterest;

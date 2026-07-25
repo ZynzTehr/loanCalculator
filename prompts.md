@@ -234,6 +234,16 @@ Re-organizing project files into `css/styles.css` and `js/app.js`, relabeling th
 **Goal/Context:** 
 Moving `report.html` into `html/report.html`, updating relative paths for CSS (`../css/styles.css`), JS (`../js/report.js`), and return links (`../index.html#calculator`), and updating `js/app.js` navigation target.
 
+---
+
+### Prompt 27: Report Title Contrast & Full Month/Months Wording
+**Prompt:**
+> in report.html file. change text mo to month and mos to months. the text Auto Financing Loan Detailed Breakdown in too dark, i need it to be lighter, but remain in line with the monochromatic theme we have.
+
+**Goal/Context:** 
+Replacing all `mo`/`mos` abbreviations with full `month`/`months` words in `html/report.html` and `js/report.js`, and adjusting `#reportTitle` to crisp white (`#ffffff`) and card section titles to vibrant monochromatic blue (`var(--blue-800)`) for high-contrast readability.
+
+
 
 
 
