@@ -207,6 +207,16 @@ Setting `FinPulse` (brand logo) as the active navigation item when viewing the t
 **Goal/Context:** 
 Formulating product enhancement options (Extra Payment Simulator, Amortization Schedule Chart, Financial Health DTI/PMI Indicators, Scenario Comparisons, and Inline Glossary Tooltips), updating prompt history, and syncing all commits to GitHub as a baseline checkpoint.
 
+---
+
+### Prompt 24: Option 5 Educational Tooltips & Responsive Clamp Scaling (320px, 375px, 425px)
+**Prompt:**
+> i would like to implement option 5 to see how it works for now, then decide on the other ones. show me options again afterward. i have issues with responsiveness at 320px, 375px, and 425px. lets implement for example: font-size: clamp(1.8rem, calc(), 5rem) in CSS to help with font scaling and zooming as well.
+
+**Goal/Context:** 
+Implementing Option 5 in-line educational glossary tooltips (`?` icons) on key financial terms, implementing fluid CSS `clamp(...)` typography and card padding rules, and adding responsive media query overrides for 320px, 375px, and 425px mobile viewports.
+
+
 
 
 

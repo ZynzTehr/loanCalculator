@@ -129,7 +129,12 @@
             <!-- Input 1: Loan Amount / Home Price / Vehicle Price -->
             <div class="form-group">
               <div class="form-label-row">
-                <label for="loanAmount" id="loanAmountLabel" class="form-label">Loan Amount</label>
+                <label for="loanAmount" class="form-label">
+                  <span id="loanAmountLabel">Loan Amount</span>
+                  <span class="tooltip-icon" tabindex="0" aria-label="Explanation of Loan Amount">?
+                    <span class="tooltip-box">The total borrowed principal amount before interest or lender fees are applied.</span>
+                  </span>
+                </label>
                 <div class="input-number-wrapper">
                   <span class="input-prefix">$</span>
                   <input type="number" id="loanAmount" class="form-input has-prefix" value="15000" min="1000" max="50000" step="500">
@@ -150,7 +155,12 @@
             <!-- Input 1.5: Down Payment (Mortgage & Auto) -->
             <div class="form-group" id="downPaymentGroup" style="display: none;">
               <div class="form-label-row">
-                <label for="downPayment" id="downPaymentLabel" class="form-label">Down Payment</label>
+                <label for="downPayment" class="form-label">
+                  <span id="downPaymentLabel">Down Payment</span>
+                  <span class="tooltip-icon" tabindex="0" aria-label="Explanation of Down Payment">?
+                    <span class="tooltip-box">Upfront cash paid to reduce your net loan principal and lower monthly interest charges.</span>
+                  </span>
+                </label>
                 <div class="input-number-wrapper">
                   <span class="input-prefix">$</span>
                   <input type="number" id="downPayment" class="form-input has-prefix" value="0" min="0" max="500000" step="1000">
@@ -165,13 +175,21 @@
               </div>
               <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.45rem; font-weight: 500;" id="netLoanNote">
                 Net Financing Principal: <strong id="netLoanAmountText" style="color: var(--blue-700);">$0</strong>
+                <span class="tooltip-icon" tabindex="0" aria-label="Explanation of Net Principal">?
+                  <span class="tooltip-box">Total purchase price minus down payment. This is the actual amount generating interest.</span>
+                </span>
               </div>
             </div>
 
             <!-- Input 2: Interest Rate -->
             <div class="form-group">
               <div class="form-label-row">
-                <label for="interestRate" class="form-label">Interest Rate (APR)</label>
+                <label for="interestRate" class="form-label">
+                  Interest Rate (APR)
+                  <span class="tooltip-icon" tabindex="0" aria-label="Explanation of Interest Rate">?
+                    <span class="tooltip-box">The annual percentage rate charged by the lender for borrowing money over your loan term.</span>
+                  </span>
+                </label>
                 <div class="input-number-wrapper">
                   <input type="number" id="interestRate" class="form-input has-suffix" value="7.5" min="3.0" max="36.0" step="0.1">
                   <span class="input-suffix">%</span>
@@ -189,7 +207,12 @@
             <!-- Input 3: Loan Term -->
             <div class="form-group">
               <div class="form-label-row">
-                <label for="loanTerm" class="form-label">Loan Term</label>
+                <label for="loanTerm" class="form-label">
+                  Loan Term
+                  <span class="tooltip-icon" tabindex="0" aria-label="Explanation of Loan Term">?
+                    <span class="tooltip-box">The total duration (in years or months) over which you agree to repay the loan balance.</span>
+                  </span>
+                </label>
                 <div style="display: flex; gap: 0.5rem; align-items: center;">
                   <input type="number" id="loanTerm" class="form-input" value="3" min="1" max="7" step="1">
                   <select id="termUnit" class="form-input" style="width: 100px; padding-left: 0.5rem; padding-right: 0.5rem;">
@@ -215,7 +238,12 @@
           <!-- Results Summary Column -->
           <div class="results-container">
             <div class="results-header">
-              <span class="results-label">Estimated Monthly Payment</span>
+              <span class="results-label">
+                Estimated Monthly Payment
+                <span class="tooltip-icon" tabindex="0" aria-label="Explanation of Monthly Payment">?
+                  <span class="tooltip-box">Your required monthly payment covering both principal paydown and interest.</span>
+                </span>
+              </span>
               <div class="monthly-payment-amount">
                 <span class="currency">$</span>
                 <span id="monthlyPayment">489</span>

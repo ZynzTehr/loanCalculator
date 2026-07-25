@@ -483,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, {
       threshold: 0.12,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: '0px 0px -200px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
@@ -541,6 +541,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pageSections.forEach(section => navSpyObserver.observe(section));
   }
+
+  // Educational Glossary Tooltips Touch / Click Toggle
+  const tooltipIcons = document.querySelectorAll('.tooltip-icon');
+  tooltipIcons.forEach(icon => {
+    icon.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = icon.classList.contains('active');
+      tooltipIcons.forEach(i => i.classList.remove('active'));
+      if (!isActive) icon.classList.add('active');
+    });
+  });
+
+  document.addEventListener('click', () => {
+    tooltipIcons.forEach(i => i.classList.remove('active'));
+  });
 
   // Initialize Default Personal Loan Config
   applyLoanConfig('personal');
