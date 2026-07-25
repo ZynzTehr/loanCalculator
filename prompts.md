@@ -111,10 +111,20 @@ Updating number and currency formatters to display decimal places for cents whil
 
 ### Prompt 13: Cents Trailing Zero Precision (.90 formatting)
 **Prompt:**
-> i noticed that if the decimal is .90 it only displays .9, lets change it so that it displays .90
+> i noticed that if the decimal is .90 it only displays .9, lets change it so that it displays .90 and so on for any other numbers that have trailing zeroes.
 
 **Goal/Context:** 
 Updating currency formatters to dynamically set `minimumFractionDigits: 2` whenever cents exist so values like `.90` display as `$489.90` instead of `$489.9`.
+
+---
+
+### Prompt 14: Loan Category Tab Switch Transition Animation
+**Prompt:**
+> i would like the transition for the personal, mortgage, auto, student loan tabs to be animated.
+
+**Goal/Context:** 
+Adding smooth CSS keyframe cross-fade & slide transitions (`.tab-change-anim`) and active tab button scale effects when switching between Personal, Mortgage, Auto, and Student loan categories.
+
 
 
 

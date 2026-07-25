@@ -225,6 +225,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     activeType = type;
 
+    // Trigger smooth tab transition animation on inputs container
+    const calculatorInputs = document.querySelector('.calculator-inputs');
+    if (calculatorInputs) {
+      calculatorInputs.classList.remove('tab-change-anim');
+      void calculatorInputs.offsetWidth; // Force reflow
+      calculatorInputs.classList.add('tab-change-anim');
+    }
+
     // 1. Amount Configuration
     if (loanAmountLabel) loanAmountLabel.textContent = config.amountLabel;
     
