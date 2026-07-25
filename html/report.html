@@ -186,7 +186,7 @@
         <div class="health-card">
           <h4 style="color: var(--blue-800); margin-bottom: 0.5rem;">Down Payment & Equity Guardrail</h4>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-            A 20% down payment eliminates Private Mortgage Insurance (PMI) on home loans and provides equity protection against depreciation.
+            A 20% down payment eliminates Private Mortgage Insurance (PMI) on home loans or prevent the need for GAP insurance on auto loans. This provides equity protection against depreciation.
           </p>
           <div style="padding: 0.75rem; border-radius: var(--radius-sm); background: white; border: 1px solid var(--blue-200);">
             <div style="font-size: 0.85rem; color: var(--text-muted);">Upfront Down Payment Ratio:</div>
@@ -229,12 +229,15 @@
           </div>
           <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
             <select id="scenBTermSelect" class="form-input" style="font-size: 0.85rem; padding: 0.35rem 0.5rem;">
-              <option value="1">1 Year Term</option>
-              <option value="2">2 Year Term</option>
-              <option value="3" selected>3 Year Term</option>
-              <option value="5">5 Year Term</option>
-              <option value="15">15 Year Term</option>
-              <option value="30">30 Year Term</option>
+              <option value="1">1 Year Term (12 mos)</option>
+              <option value="2">2 Year Term (24 mos)</option>
+              <option value="3" selected>3 Year Term (36 mos)</option>
+              <option value="4">4 Year Term (48 mos)</option>
+              <option value="5">5 Year Term (60 mos)</option>
+              <option value="6">6 Year Term (72 mos)</option>
+              <option value="7">7 Year Term (84 mos)</option>
+              <option value="15">15 Year Term (180 mos)</option>
+              <option value="30">30 Year Term (360 mos)</option>
             </select>
             <input type="number" id="scenBRateInput" class="form-input" value="6.5" min="1" max="30" step="0.25" style="font-size: 0.85rem; padding: 0.35rem 0.5rem; width: 100px;" placeholder="Rate %">
           </div>

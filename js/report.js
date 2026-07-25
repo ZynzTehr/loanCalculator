@@ -310,9 +310,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (scenAInterest) scenAInterest.textContent = `Total Interest: ${formatCurrency(baseline.totalInterest)}`;
 
   function updateScenarioB() {
-    const scenBTerm = parseInt(scenBTermSelect.value, 10) || calcState.loanTerm;
+    const scenBTermYears = parseInt(scenBTermSelect.value, 10) || 1;
     const scenBRate = parseFloat(scenBRateInput.value) || calcState.interestRate;
-    const scenBMonths = isYears ? scenBTerm * 12 : scenBTerm;
+    const scenBMonths = scenBTermYears * 12;
 
     const scenBMath = computeLoanMath(netPrincipal, scenBRate, scenBMonths);
 
