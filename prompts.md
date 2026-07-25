@@ -261,6 +261,16 @@ Extracting all inline `<style>` block rules from `html/report.html` into a new d
 **Goal/Context:** 
 Diagnosing and fixing Scenario B term duration math in `js/report.js`. When the primary loan used `months` as its term unit, Scenario B mistakenly evaluated option values (e.g. `value="1"`) as 1 month instead of 12 months (1 year), causing the monthly payment to compute as paying off the entire principal in a single month ($10,108.53) instead of over 12 months ($919.47). Updated `updateScenarioB()` to convert dropdown years directly into months (`scenBTermYears * 12`).
 
+---
+
+### Prompt 30: Optimize Scenario B Select Box Options & Flex Layout
+**Prompt:**
+> 1 Year (12 Months) and so on do not fit well in its box
+
+**Goal/Context:** 
+Optimizing Scenario B select box option text to concise labels (`1 Year (12m)`, `2 Years (24m)`, etc.) and configuring flex layout (`flex: 1; min-width: 0; text-overflow: ellipsis`) so option text fits cleanly without clipping or pushing inputs off-screen.
+
+
 
 
 
