@@ -288,6 +288,16 @@ Wrapping Scenario B `#scenBRateInput` in `.input-number-wrapper` with `<span cla
 **Goal/Context:** 
 Explaining CSS print pagination mechanics and updating `@media print` rules in `css/report.css`. Replaced rigid `break-inside: avoid` on outer section cards with natural `break-inside: auto` to eliminate large white gaps. Added `overflow: visible` to table wrapper and `break-inside: avoid` to table rows (`tr`) to prevent amortization table truncation across page breaks.
 
+---
+
+### Prompt 33: Remove Stray Trailing HTML Characters (l>)
+**Prompt:**
+> why does it show this l> on the priview at the end. can you explain?
+
+**Goal/Context:** 
+Explaining how stray text characters outside `</html>` get parsed by browser DOM engines as visible text nodes. Removed accidental trailing `l>` typo from line 258 of `html/report.html`.
+
+
 
 
 
