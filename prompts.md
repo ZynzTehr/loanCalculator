@@ -88,6 +88,16 @@ Integrating JavaScript `IntersectionObserver` to trigger hardware-accelerated CS
 **Goal/Context:** 
 Increasing transition duration (`0.85s`) and staggered delays (`0.15s`–`0.6s`), and removing one-shot unobserving so items exit (`is-visible` removed) and re-animate continuously as users scroll up and down.
 
+---
+
+### Prompt 11: Transition Performance Tuning & Initial Load Delay
+**Prompt:**
+> revert the delay to .75s from 0.85s, the screen became laggy. introduce the .85s delay at initial load of the application. the rest of the time it should be .75s
+
+**Goal/Context:** 
+Reverting standard scroll reveal duration back to snappy `0.75s` to eliminate scroll lagginess, while reserving `0.85s` duration exclusively for the initial application hero load via `.initial-load`.
+
+
 
 
 
