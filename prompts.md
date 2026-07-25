@@ -15,3 +15,12 @@ Initial project brief review to ensure full understanding of constraints, stack 
 
 **Goal/Context:** 
 Setup `.gitignore` for workspace privacy/cleanliness, establish monochromatic blue visual identity, and build the initial homepage UI.
+
+---
+
+### Prompt 3: Design Rationale & Code Explanation
+**Prompt:**
+> Why did you choose this font-size? (`styles.css` line 502)
+
+**Goal/Context:** 
+Questioning design decisions and asking AI to explain typography choices (`0.75rem`), visual hierarchy, and uppercase letter-spacing balance in financial card UI design.
