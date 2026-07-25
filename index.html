@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FinPulse Loan Calculator - Calculate monthly payments, interest rates, and loan payoff schedules with instant financial clarity.">
+  <title>FinPulse | Modern Financial Loan Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        FinPulse
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#calculator" class="active">Calculator</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#faq">Guide</a></li>
+        </ul>
+      </nav>
+      <a href="#calculator" class="btn-primary">
+        Calculate Now
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span></span> Monochromatic Financial Precision
+          </div>
+          <h1 class="hero-title">
+            Smart Loan Calculations. <br>
+            <span class="text-gradient">Instant Financial Clarity.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Plan your personal loans, mortgages, auto financing, or student debt with precision. Estimate monthly payments and total interest instantly.
+          </p>
+          <div class="hero-actions">
+            <a href="#calculator" class="btn-primary">
+              Start Calculating
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>100%</h4>
+              <p>Free & Transparent</p>
+            </div>
+            <div class="stat-item">
+              <h4>Real-time</h4>
+              <p>Payment Schedules</p>
+            </div>
+            <div class="stat-item">
+              <h4>Zero</h4>
+              <p>Hidden Fees</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Preview Banner / Visual Card -->
+        <div class="hero-card-preview" style="background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-blue); box-shadow: var(--shadow-lg); padding: 2.25rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--blue-600);"></div>
+              <span style="font-weight: 700; color: var(--blue-900);">Quick Estimate Preview</span>
+            </div>
+            <span style="font-size: 0.8rem; background: var(--blue-100); color: var(--blue-800); padding: 0.25rem 0.65rem; border-radius: var(--radius-full); font-weight: 600;">Sample Loan</span>
+          </div>
+
+          <div style="background: var(--blue-50); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--blue-200); margin-bottom: 1.5rem;">
+            <span style="font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Estimated Monthly Payment</span>
+            <div style="font-size: 2.5rem; font-weight: 800; color: var(--blue-800); line-height: 1.2; margin-top: 0.2rem;">
+              $466 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">/ mo</span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
+            <div style="padding: 0.85rem; background: #f8fafc; border-radius: var(--radius-sm);">
+              <small style="color: var(--text-light); display: block;">Loan Amount</small>
+              <strong style="color: var(--blue-950); font-weight: 700;">$25,000</strong>
+            </div>
+            <div style="padding: 0.85rem; background: #f8fafc; border-radius: var(--radius-sm);">
+              <small style="color: var(--text-light); display: block;">Interest Rate</small>
+              <strong style="color: var(--blue-950); font-weight: 700;">4.5% APR</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Calculator Section -->
+    <section id="calculator" class="calculator-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Interactive Loan Calculator</h2>
+          <p>Adjust the sliders or type directly to see your customized payment breakdown instantly.</p>
+        </div>
+
+        <div class="calculator-card">
+          <!-- Form Inputs Column -->
+          <div class="calculator-inputs">
+            
+            <!-- Category Tabs -->
+            <div class="loan-type-tabs">
+              <button type="button" class="tab-btn active" data-type="personal">Personal</button>
+              <button type="button" class="tab-btn" data-type="mortgage">Mortgage</button>
+              <button type="button" class="tab-btn" data-type="auto">Auto</button>
+              <button type="button" class="tab-btn" data-type="student">Student</button>
+            </div>
+
+            <!-- Input 1: Loan Amount -->
+            <div class="form-group">
+              <div class="form-label-row">
+                <label for="loanAmount" class="form-label">Loan Amount</label>
+                <div class="input-number-wrapper">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="loanAmount" class="form-input has-prefix" value="25000" min="1000" max="1000000" step="500">
+                </div>
+              </div>
+              <div class="slider-container">
+                <input type="range" id="loanAmountSlider" class="range-slider" value="25000" min="1000" max="1000000" step="500">
+                <div class="slider-limits">
+                  <span>$1,000</span>
+                  <span>$1,000,000</span>
+                </div>
+              </div>
+              <div class="presets-group">
+                <button type="button" class="preset-chip" data-amount="10000">$10,000</button>
+                <button type="button" class="preset-chip" data-amount="25000">$25,000</button>
+                <button type="button" class="preset-chip" data-amount="50000">$50,000</button>
+                <button type="button" class="preset-chip" data-amount="100000">$100,000</button>
+              </div>
+            </div>
+
+            <!-- Input 2: Interest Rate -->
+            <div class="form-group">
+              <div class="form-label-row">
+                <label for="interestRate" class="form-label">Interest Rate (APR)</label>
+                <div class="input-number-wrapper">
+                  <input type="number" id="interestRate" class="form-input has-suffix" value="6.5" min="0.1" max="30" step="0.1">
+                  <span class="input-suffix">%</span>
+                </div>
+              </div>
+              <div class="slider-container">
+                <input type="range" id="interestRateSlider" class="range-slider" value="6.5" min="0.1" max="30" step="0.1">
+                <div class="slider-limits">
+                  <span>0.1%</span>
+                  <span>30.0%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Input 3: Loan Term -->
+            <div class="form-group">
+              <div class="form-label-row">
+                <label for="loanTerm" class="form-label">Loan Term</label>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                  <input type="number" id="loanTerm" class="form-input" value="5" min="1" max="40" step="1">
+                  <select id="termUnit" class="form-input" style="width: 100px; padding-left: 0.5rem; padding-right: 0.5rem;">
+                    <option value="years" selected>Years</option>
+                    <option value="months">Months</option>
+                  </select>
+                </div>
+              </div>
+              <div class="slider-container">
+                <input type="range" id="loanTermSlider" class="range-slider" value="5" min="1" max="40" step="1">
+                <div class="slider-limits">
+                  <span>1 Yr</span>
+                  <span>40 Yrs</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Results Summary Column -->
+          <div class="results-container">
+            <div class="results-header">
+              <span>Estimated Monthly Payment</span>
+              <div class="monthly-payment-amount">
+                <span class="currency">$</span>
+                <span id="monthlyPayment">489</span>
+              </div>
+              <p class="payment-subtext">Based on standard amortization rates</p>
+            </div>
+
+            <!-- Visual Breakdown Progress Bar -->
+            <div class="breakdown-bar-container">
+              <div class="breakdown-labels">
+                <span id="principalPercentText">Principal (80%)</span>
+                <span id="interestPercentText">Interest (20%)</span>
+              </div>
+              <div class="breakdown-bar">
+                <div id="barPrincipal" class="bar-principal" style="width: 80%;"></div>
+                <div id="barInterest" class="bar-interest" style="width: 20%;"></div>
+              </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+              <div class="stat-box">
+                <small>Total Principal</small>
+                <strong id="totalPrincipal">$25,000</strong>
+              </div>
+              <div class="stat-box">
+                <small>Total Interest</small>
+                <strong id="totalInterest">$4,340</strong>
+              </div>
+              <div class="stat-box" style="grid-column: span 2;">
+                <small>Total Overall Payment</small>
+                <strong id="totalPayment">$29,340</strong>
+              </div>
+            </div>
+
+            <button type="button" class="btn-primary" style="width: 100%; justify-content: center;" onclick="window.print()">
+              Print / Save Calculation
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Why Use FinPulse Calculator?</h2>
+          <p>Designed for financial clarity and modern simplicity.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <h3>Real-Time Precision</h3>
+            <p>Calculations update dynamically as you drag sliders or tweak rates, providing immediate feedback.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3>100% Private & Secure</h3>
+            <p>Your inputs are computed entirely inside your browser. No financial data is ever stored or transmitted.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3>Clear Interest Breakdown</h3>
+            <p>Easily differentiate between principal repayment and cumulative interest costs across loan lifespans.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="brand-logo" style="color: white;">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        FinPulse
+      </div>
+      <p style="font-size: 0.9rem; max-width: 400px; color: var(--blue-300);">
+        Empowering smart personal finance decisions through clean, transparent, and accurate loan calculations.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 FinPulse Loan Calculator. Built for financial clarity.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
