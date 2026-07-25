@@ -225,6 +225,16 @@ Implementing Option 5 in-line educational glossary tooltips (`?` icons) on key f
 **Goal/Context:** 
 Re-organizing project files into `css/styles.css` and `js/app.js`, relabeling the primary action button to "View Detailed Analysis & Report", persisting calculator state via `localStorage`, creating `report.html` & `js/report.js` with all 4 financial literacy options (Extra Payment Simulator, Amortization Schedule, DTI & 20% PMI Health Ratios, and Side-by-Side Scenario Comparisons), and providing a seamless "Return to Calculator" button that restores inputs.
 
+---
+
+### Prompt 26: Relocate report.html to html/ Directory
+**Prompt:**
+> put report.html in an HTML folder, update links to css and js files
+
+**Goal/Context:** 
+Moving `report.html` into `html/report.html`, updating relative paths for CSS (`../css/styles.css`), JS (`../js/report.js`), and return links (`../index.html#calculator`), and updating `js/app.js` navigation target.
+
+
 
 
 

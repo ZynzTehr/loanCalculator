@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (viewReportBtn) {
     viewReportBtn.addEventListener('click', () => {
       saveCalculatorState();
-      window.location.href = 'report.html';
+      window.location.href = 'html/report.html';
     });
   }
 

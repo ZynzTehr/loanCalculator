@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Return to Calculator & Print Navigation ---
   function returnToCalculator() {
-    window.location.href = 'index.html#calculator';
+    window.location.href = '../index.html#calculator';
   }
 
   if (returnCalcBtn) returnCalcBtn.addEventListener('click', returnToCalculator);
