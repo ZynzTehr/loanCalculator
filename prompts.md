@@ -270,6 +270,16 @@ Diagnosing and fixing Scenario B term duration math in `js/report.js`. When the 
 **Goal/Context:** 
 Optimizing Scenario B select box option text to concise labels (`1 Year (12m)`, `2 Years (24m)`, etc.) and configuring flex layout (`flex: 1; min-width: 0; text-overflow: ellipsis`) so option text fits cleanly without clipping or pushing inputs off-screen.
 
+---
+
+### Prompt 31: Add Percent Suffix Badge to Scenario B Rate Input
+**Prompt:**
+> add a % symbol for the rate input box like it is in the index.html file don't push to github
+
+**Goal/Context:** 
+Wrapping Scenario B `#scenBRateInput` in `.input-number-wrapper` with `<span class="input-suffix">%</span>` matching the interest rate input design on `index.html`. Holding Git commit locally without pushing to remote GitHub as requested.
+
+
 
 
 

@@ -229,17 +229,20 @@
           </div>
           <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem; align-items: center;">
             <select id="scenBTermSelect" class="form-input" style="flex: 1; min-width: 0; font-size: 0.82rem; padding: 0.4rem 0.35rem; text-overflow: ellipsis;">
-              <option value="1">1 Year (12m)</option>
-              <option value="2">2 Years (24m)</option>
-              <option value="3" selected>3 Years (36m)</option>
-              <option value="4">4 Years (48m)</option>
-              <option value="5">5 Years (60m)</option>
-              <option value="6">6 Years (72m)</option>
-              <option value="7">7 Years (84m)</option>
-              <option value="15">15 Years (180m)</option>
-              <option value="30">30 Years (360m)</option>
+              <option value="1">1 Year (12 months)</option>
+              <option value="2">2 Years (24 months)</option>
+              <option value="3" selected>3 Years (36 months)</option>
+              <option value="4">4 Years (48 months)</option>
+              <option value="5">5 Years (60 months)</option>
+              <option value="6">6 Years (72 months)</option>
+              <option value="7">7 Years (84 months)</option>
+              <option value="15">15 Years (180 months)</option>
+              <option value="30">30 Years (360 months)</option>
             </select>
-            <input type="number" id="scenBRateInput" class="form-input" value="6.5" min="1" max="30" step="0.25" style="width: 82px; flex-shrink: 0; font-size: 0.82rem; padding: 0.4rem 0.35rem;" placeholder="Rate %">
+            <div class="input-number-wrapper" style="width: 90px; flex-shrink: 0;">
+              <input type="number" id="scenBRateInput" class="form-input has-suffix" value="6.5" min="1" max="30" step="0.25" style="width: 100%; font-size: 0.82rem; padding: 0.4rem 1.3rem 0.4rem 0.35rem;" placeholder="Rate">
+              <span class="input-suffix" style="right: 0.4rem; font-size: 0.82rem;">%</span>
+            </div>
           </div>
           <div style="font-size: 0.9rem; font-weight: 700; color: var(--blue-700);" id="scenBPayment">$489.27 / month</div>
           <div style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.5rem;" id="scenBInterest">Total Interest: $4,340.50</div>
