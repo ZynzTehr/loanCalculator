@@ -121,7 +121,6 @@ Updating currency formatters to dynamically set `minimumFractionDigits: 2` whene
 ### Prompt 14: Sliding Active Tab Indicator & GitHub Sync
 **Prompt:**
 > i would like the transition for the personal, mortgage, auto, student loan tabs to be animated.
-> push to github
 
 **Goal/Context:** 
 Adding a responsive sliding background pill indicator (`.tab-indicator`) that glides smoothly beneath Personal, Mortgage, Auto, and Student tabs when clicked, combined with input container cross-fade slide transitions (`.tab-change-anim`), and pushing all commits to GitHub.
@@ -134,6 +133,16 @@ Adding a responsive sliding background pill indicator (`.tab-indicator`) that gl
 
 **Goal/Context:** 
 Adding click handlers and an `IntersectionObserver` scroll-spy in JavaScript to dynamically update `.active` state on header navbar links (Calculator, Features, Guide) as users click links or scroll through page sections.
+
+---
+
+### Prompt 16: Accordion Text Fade-in Animation
+**Prompt:**
+> when clicking on an accordion, i would like the text to fade in.
+
+**Goal/Context:** 
+Adding smooth CSS `opacity` (fade-in) and `transform` transitions to `.accordion-content` so that text gracefully fades in when opening any Financial Literacy Guide accordion item.
+
 
 
 
