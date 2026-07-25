@@ -275,13 +275,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  background: var(--blue-100);
-  color: var(--blue-700);
-  font-size: 0.7rem;
-  font-weight: 700;
+  color: var(--blue-500);
   cursor: help;
   position: relative;
   margin-left: 0.35rem;
@@ -293,8 +287,8 @@ a {
 .tooltip-icon:hover,
 .tooltip-icon:focus,
 .tooltip-icon.active {
-  background: var(--blue-600);
-  color: white;
+  color: var(--blue-700);
+  transform: scale(1.15);
   outline: none;
 }
 
