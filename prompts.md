@@ -24,3 +24,12 @@ Setup `.gitignore` for workspace privacy/cleanliness, establish monochromatic bl
 
 **Goal/Context:** 
 Questioning design decisions and asking AI to explain typography choices (`0.75rem`), visual hierarchy, and uppercase letter-spacing balance in financial card UI design.
+
+---
+
+### Prompt 4: Typography Adjustment & Browser DevTools Iteration
+**Prompt:**
+> In this line, the font-size is too small. We need to make it 2rem to match the dollar sign in `.monthly-payment-amount span.currency`. I used the inspect option on my browser and played with the font-size a bit, it looks better as 2rem.
+
+**Goal/Context:** 
+Iterating on UI layout based on browser DevTools testing to align header label size (`2rem`) with the dollar sign currency symbol.
