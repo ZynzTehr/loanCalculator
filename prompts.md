@@ -105,7 +105,17 @@ Reverting standard scroll reveal duration back to snappy `0.75s` to eliminate sc
 > yes lets update to display decimals. but keep the number itself when decimals are 0, i.e 15,000 versus 15,000.00
 
 **Goal/Context:** 
-Updating number and currency formatters (`minimumFractionDigits: 0, maximumFractionDigits: 2`) to display up to 2 decimal places for cents while omitting `.00` on whole integer amounts.
+Updating number and currency formatters to display decimal places for cents while omitting `.00` on whole integer amounts.
+
+---
+
+### Prompt 13: Cents Trailing Zero Precision (.90 formatting)
+**Prompt:**
+> i noticed that if the decimal is .90 it only displays .9, lets change it so that it displays .90
+
+**Goal/Context:** 
+Updating currency formatters to dynamically set `minimumFractionDigits: 2` whenever cents exist so values like `.90` display as `$489.90` instead of `$489.9`.
+
 
 
 

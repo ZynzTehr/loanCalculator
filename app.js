@@ -194,22 +194,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Format Currency Helper (omits .00 when integer, displays up to 2 decimal places)
+  // Format Currency Helper (omits .00 on whole integers, displays 2 decimal places for cents e.g. .90)
   function formatCurrency(amount) {
+    const rounded = Math.round((amount || 0) * 100) / 100;
+    const hasCents = !Number.isInteger(rounded);
+    const fractionDigits = hasCents ? 2 : 0;
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 2
-    }).format(amount);
+      minimumFractionDigits: fractionDigits,
+      maximumFractionDigits: fractionDigits
+    }).format(rounded);
   }
 
-  // Format Number Helper (without currency symbol)
+  // Format Number Helper (without currency symbol, displays 2 decimal places for cents e.g. .90)
   function formatNumber(amount) {
+    const rounded = Math.round((amount || 0) * 100) / 100;
+    const hasCents = !Number.isInteger(rounded);
+    const fractionDigits = hasCents ? 2 : 0;
     return new Intl.NumberFormat('en-US', {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 2
-    }).format(amount);
+      minimumFractionDigits: fractionDigits,
+      maximumFractionDigits: fractionDigits
+    }).format(rounded);
   }
 
   // Apply Selected Loan Tab Configuration
