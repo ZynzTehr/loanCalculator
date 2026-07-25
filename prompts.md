@@ -70,5 +70,15 @@ Adding a location-based tax and insurance disclaimer box to the Mortgage tab for
 **Goal/Context:** 
 Expanding disclaimers dynamically across all loan tabs (Personal, Mortgage, Auto, Student) to educate users on real-world expenses like origination fees, sales tax/registration, property taxes/PMI, and in-school interest capitalization.
 
+---
+
+### Prompt 9: IntersectionObserver Scroll Animations
+**Prompt:**
+> lets use javascript intersction observer to animate and liven up our application, so it looks more modern and cool.
+
+**Goal/Context:** 
+Integrating JavaScript `IntersectionObserver` to trigger hardware-accelerated CSS scroll-reveal entrance animations and scale transitions as hero elements, calculator cards, feature grids, and guide items scroll into view.
+
+
 
 
