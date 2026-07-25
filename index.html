@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="FinPulse Loan Calculator - Calculate monthly payments, interest rates, and loan payoff schedules with instant financial clarity.">
   <title>FinPulse | Modern Financial Loan Calculator</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -318,8 +318,12 @@
               </div>
             </div>
 
-            <button type="button" class="btn-primary" style="width: 100%; justify-content: center;" onclick="window.print()">
-              Print / Save Calculation
+            <button type="button" id="viewReportBtn" class="btn-primary" style="width: 100%; justify-content: center; gap: 0.5rem;">
+              View Detailed Analysis & Report
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </button>
           </div>
         </div>
@@ -330,97 +334,103 @@
     <section id="features" class="features-section">
       <div class="section-container">
         <div class="section-header reveal-on-scroll">
-          <h2>Why Use FinPulse Calculator?</h2>
-          <p>Designed for financial clarity and modern simplicity.</p>
+          <h2>Why Choose FinPulse?</h2>
+          <p>Engineered to give you transparent financial insight before making life-changing borrowing decisions.</p>
         </div>
 
         <div class="features-grid">
-          <div class="feature-card reveal-on-scroll delay-100">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-              </svg>
-            </div>
-            <h3>Real-Time Precision</h3>
-            <p>Calculations update dynamically as you drag sliders or tweak rates, providing immediate feedback.</p>
-          </div>
-
-          <div class="feature-card reveal-on-scroll delay-200">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-            </div>
-            <h3>100% Private & Secure</h3>
-            <p>Your inputs are computed entirely inside your browser. No financial data is ever stored or transmitted.</p>
-          </div>
-
-          <div class="feature-card reveal-on-scroll delay-300">
+          <div class="feature-card reveal-scale delay-100">
             <div class="feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
             </div>
-            <h3>Clear Interest Breakdown</h3>
-            <p>Easily differentiate between principal repayment and cumulative interest costs across loan lifespans.</p>
+            <h3>Real-Time Amortization</h3>
+            <p>See instant updates to your principal, interest, and monthly obligations as you adjust terms.</p>
+          </div>
+
+          <div class="feature-card reveal-scale delay-200">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Transparent Disclaimers</h3>
+            <p>Never get caught off guard by hidden taxes, insurance, or origination fees specific to your loan type.</p>
+          </div>
+
+          <div class="feature-card reveal-scale delay-300">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3>Tailored Category Presets</h3>
+            <p>Pre-configured slider ranges and term limits designed specifically for personal, mortgage, auto, and student loans.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Financial Literacy Guide & FAQ Section -->
+    <!-- Financial Literacy Guide Section -->
     <section id="guide" class="guide-section">
       <div class="section-container">
         <div class="section-header reveal-on-scroll">
           <h2>Financial Literacy Guide</h2>
-          <p>Understand key borrowing concepts to make informed, confident financial decisions.</p>
+          <p>Master key loan concepts to make informed, confident borrowing decisions.</p>
         </div>
 
-        <div class="accordion-container">
-          <div class="accordion-item reveal-on-scroll delay-100">
+        <div class="accordion-container reveal-on-scroll delay-100">
+          <div class="accordion-item active">
             <button type="button" class="accordion-header">
-              <span>How does loan amortization work?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <span>Understanding Amortization</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </button>
             <div class="accordion-content">
-              <p>Amortization is the process of spreading out a loan into equal payments over time. In early payments, a higher percentage goes toward interest because the remaining balance is large. As the balance decreases, a larger portion of each payment goes directly toward paying down the principal.</p>
+              <p>Amortization is the process of spreading out a loan into a series of equal payments over time. In early payments, a higher percentage goes toward paying interest, while later payments pay off more of the principal balance.</p>
             </div>
           </div>
 
-          <div class="accordion-item reveal-on-scroll delay-200">
+          <div class="accordion-item">
             <button type="button" class="accordion-header">
-              <span>What is the difference between Interest Rate and APR?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <span>Interest Rate vs. APR</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </button>
             <div class="accordion-content">
-              <p>The <strong>interest rate</strong> is the base percentage charged by the lender for borrowing money. <strong>APR (Annual Percentage Rate)</strong> includes the interest rate plus mandatory lender fees (such as origination fees), giving you a more complete picture of the total annual cost of borrowing.</p>
+              <p>The <strong>Interest Rate</strong> is the base percentage charged for borrowing money. <strong>APR (Annual Percentage Rate)</strong> includes the interest rate PLUS mandatory fees (such as origination, processing, or closing costs), giving you a truer picture of total loan cost.</p>
             </div>
           </div>
 
-          <div class="accordion-item reveal-on-scroll delay-300">
+          <div class="accordion-item">
             <button type="button" class="accordion-header">
-              <span>How does a down payment save you money?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <span>Down Payments & Loan Costs</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </button>
             <div class="accordion-content">
-              <p>A down payment reduces the total principal you borrow upfront. Because interest is calculated on remaining principal, a larger down payment immediately lowers both your monthly payment and the total cumulative interest paid over the life of the loan.</p>
+              <p>Putting money down upfront directly reduces your <em>Net Financing Principal</em>. A higher down payment lowers your monthly payment and saves significant money in lifetime interest.</p>
             </div>
           </div>
 
-          <div class="accordion-item reveal-on-scroll delay-400">
+          <div class="accordion-item">
             <button type="button" class="accordion-header">
-              <span>What hidden costs should I plan for by loan type?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <span>Hidden Costs by Loan Type</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </button>
             <div class="accordion-content">
               <ul>
-                <li><strong>Mortgages:</strong> Property taxes, homeowners insurance, HOA dues, closing costs (2%–5%), and PMI (if down payment is under 20%).</li>
-                <li><strong>Auto Loans:</strong> State sales tax, vehicle registration/title fees, dealer documentation fees, and mandatory full-coverage insurance.</li>
-                <li><strong>Personal Loans:</strong> Origination fees (1%–8%) deducted upfront from payout, and late payment penalty fees.</li>
-                <li><strong>Student Loans:</strong> Interest capitalization during in-school or deferment periods and loan origination fees.</li>
+                <li><strong>Mortgage:</strong> Property taxes, home insurance, private mortgage insurance (PMI).</li>
+                <li><strong>Auto Loans:</strong> Sales tax, vehicle registration, dealer documentation fees.</li>
+                <li><strong>Personal Loans:</strong> Upfront origination or processing fees.</li>
+                <li><strong>Student Loans:</strong> Interest capitalization during grace or in-school periods.</li>
               </ul>
             </div>
           </div>
@@ -450,6 +460,6 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

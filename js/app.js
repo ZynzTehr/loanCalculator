@@ -557,8 +557,83 @@ document.addEventListener('DOMContentLoaded', () => {
     tooltipIcons.forEach(i => i.classList.remove('active'));
   });
 
-  // Initialize Default Personal Loan Config
-  applyLoanConfig('personal');
+  // Save State to localStorage & Navigate to Detailed Analysis Page
+  const viewReportBtn = document.getElementById('viewReportBtn');
+
+  function saveCalculatorState() {
+    const state = {
+      activeType: activeType || 'personal',
+      loanAmount: parseFloat(loanAmountInput.value) || 0,
+      downPayment: parseFloat(downPaymentInput.value) || 0,
+      interestRate: parseFloat(interestRateInput.value) || 0,
+      loanTerm: parseInt(loanTermInput.value, 10) || 1,
+      termUnit: termUnitSelect ? termUnitSelect.value : 'years'
+    };
+    try {
+      localStorage.setItem('finpulse_calculator_state', JSON.stringify(state));
+    } catch (e) {
+      console.warn('Could not save to localStorage:', e);
+    }
+  }
+
+  function loadCalculatorState() {
+    try {
+      const saved = localStorage.getItem('finpulse_calculator_state');
+      if (!saved) return false;
+      const state = JSON.parse(saved);
+      if (!state || !state.activeType) return false;
+
+      // 1. Switch Tab
+      const targetTabBtn = document.querySelector(`.tab-btn[data-type="${state.activeType}"]`);
+      if (targetTabBtn) {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        targetTabBtn.classList.add('active');
+        applyLoanConfig(state.activeType);
+        updateTabIndicator(targetTabBtn);
+      }
+
+      // 2. Restore values
+      if (state.loanAmount) {
+        loanAmountInput.value = state.loanAmount;
+        loanAmountSlider.value = state.loanAmount;
+      }
+      if (state.downPayment !== undefined) {
+        downPaymentInput.value = state.downPayment;
+        downPaymentSlider.value = state.downPayment;
+      }
+      if (state.interestRate) {
+        interestRateInput.value = state.interestRate;
+        interestRateSlider.value = state.interestRate;
+      }
+      if (state.loanTerm) {
+        loanTermInput.value = state.loanTerm;
+        loanTermSlider.value = state.loanTerm;
+      }
+      if (state.termUnit && termUnitSelect) {
+        termUnitSelect.value = state.termUnit;
+      }
+
+      calculateLoan();
+      return true;
+    } catch (e) {
+      console.warn('Could not load from localStorage:', e);
+      return false;
+    }
+  }
+
+  if (viewReportBtn) {
+    viewReportBtn.addEventListener('click', () => {
+      saveCalculatorState();
+      window.location.href = 'report.html';
+    });
+  }
+
+  // Restore State or Initialize Default Personal Loan Config
+  const restored = loadCalculatorState();
+  if (!restored) {
+    applyLoanConfig('personal');
+  }
+
   const activeBtn = document.querySelector('.tab-btn.active');
   if (activeBtn) updateTabIndicator(activeBtn);
 });

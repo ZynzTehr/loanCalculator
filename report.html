@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FinPulse Detailed Financial Analysis & Report - Extra payment savings, amortization schedule, DTI health metrics, and scenario comparisons.">
+  <title>FinPulse | Detailed Financial Analysis & Report</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Report Page Specific Print & Layout Overrides */
+    .report-body {
+      background-color: #f8fafc;
+    }
+    .report-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .report-hero-card {
+      background: linear-gradient(135deg, var(--blue-950), var(--blue-900));
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .report-badge {
+      display: inline-block;
+      padding: 0.3rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: rgba(59, 130, 246, 0.25);
+      color: var(--blue-300);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(147, 197, 253, 0.3);
+    }
+    .report-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .report-metric-box small {
+      display: block;
+      color: var(--blue-200);
+      font-size: 0.82rem;
+      margin-bottom: 0.25rem;
+    }
+    .report-metric-box strong {
+      font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+      color: white;
+      font-weight: 800;
+    }
+
+    .report-section-card {
+      background: var(--surface-white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-blue);
+      box-shadow: var(--shadow-md);
+      padding: clamp(1.25rem, 3.5vw, 2.25rem);
+      margin-bottom: 2rem;
+    }
+
+    .report-section-title {
+      font-size: clamp(1.25rem, 3vw, 1.65rem);
+      color: var(--blue-950);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .report-section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Option 1: Extra Payment Simulator */
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 768px) {
+      .simulator-grid { grid-template-columns: 1fr; }
+    }
+    .savings-banner {
+      background: var(--blue-50);
+      border: 1px solid var(--blue-200);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .savings-highlight {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--blue-700);
+    }
+
+    /* Option 2: Amortization Table */
+    .amort-table-wrapper {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    .amort-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+    .amort-table th {
+      background: var(--blue-50);
+      color: var(--blue-900);
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid var(--blue-200);
+    }
+    .amort-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* Option 3: Health Metrics */
+    .health-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .health-grid { grid-template-columns: 1fr; }
+    }
+    .health-card {
+      background: var(--blue-50);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      border: 1px solid var(--blue-100);
+    }
+
+    /* Option 4: Comparison Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) {
+      .comparison-grid { grid-template-columns: 1fr; }
+    }
+    .scenario-box {
+      border: 1px solid var(--border-blue);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      background: var(--surface-white);
+    }
+
+    /* Print Overrides */
+    @media print {
+      .navbar, .report-nav-actions, .btn-primary, .btn-outline, #returnCalcBtn, #printReportBtn {
+        display: none !important;
+      }
+      body { background: white !important; }
+      .report-hero-card, .report-section-card {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="report-body">
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" id="brandLogoBtn">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        FinPulse
+      </a>
+      
+      <div class="report-nav-actions">
+        <button type="button" id="returnCalcBtn" class="btn-outline" style="display: flex; align-items: center; gap: 0.4rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Return to Calculator
+        </button>
+        <button type="button" id="printReportBtn" class="btn-primary" style="display: flex; align-items: center; gap: 0.4rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          Print / Export PDF Report
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1240px; margin: 2rem auto; padding: 0 1.5rem;">
+    
+    <!-- Executive Summary Banner -->
+    <div class="report-hero-card">
+      <span class="report-badge" id="reportTypeBadge">Personal Loan Report</span>
+      <h1 style="font-size: clamp(1.6rem, 4vw, 2.5rem); margin-bottom: 0.5rem;" id="reportTitle">
+        Detailed Financial Analysis & Breakdown
+      </h1>
+      <p style="color: var(--blue-200); font-size: 0.95rem;" id="reportSubtitle">
+        Comprehensive financial breakdown, amortization schedule, acceleration savings, and health metrics.
+      </p>
+
+      <div class="report-metrics-grid">
+        <div class="report-metric-box">
+          <small>Financing Principal</small>
+          <strong id="reportPrincipal">$15,000</strong>
+        </div>
+        <div class="report-metric-box">
+          <small>Monthly Payment</small>
+          <strong id="reportMonthlyPayment">$489.27</strong>
+        </div>
+        <div class="report-metric-box">
+          <small>Total Lifetime Interest</small>
+          <strong id="reportTotalInterest">$4,340.50</strong>
+        </div>
+        <div class="report-metric-box">
+          <small>Total Lifetime Cost</small>
+          <strong id="reportTotalCost">$19,340.50</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 1: Extra Payment & Payoff Acceleration Simulator -->
+    <div class="report-section-card">
+      <div class="report-section-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+        1. Extra Payment & Acceleration Simulator
+      </div>
+      <p class="report-section-subtitle">
+        See how adding a small extra principal contribution each month dramatically cuts total interest and shortens your payoff duration.
+      </p>
+
+      <div class="simulator-grid">
+        <div>
+          <div class="form-group">
+            <label for="extraPaymentInput" class="form-label">Extra Monthly Principal Payment ($)</label>
+            <div class="input-number-wrapper">
+              <span class="input-prefix">$</span>
+              <input type="number" id="extraPaymentInput" class="form-input has-prefix" value="100" min="0" max="5000" step="25">
+            </div>
+          </div>
+          <div class="slider-container">
+            <input type="range" id="extraPaymentSlider" class="range-slider" value="100" min="0" max="1000" step="25">
+            <div class="slider-limits">
+              <span>+$0/mo</span>
+              <span>+$1,000/mo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="savings-banner">
+          <div style="font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; font-weight: 700;">Accelerated Payoff Impact</div>
+          <div class="savings-highlight" id="interestSavingsText">Saves $1,250.00 in total interest</div>
+          <div style="font-size: 0.95rem; color: var(--blue-900); font-weight: 600;" id="timeSavingsText">
+            Pays off loan 7 months earlier!
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;" id="newTermText">
+            New loan duration: 2 years 5 months (instead of 3 years).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 2: Interactive Amortization Schedule & Balance Shift -->
+    <div class="report-section-card">
+      <div class="report-section-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+        2. Amortization Schedule & Principal vs. Interest Breakdown
+      </div>
+      <p class="report-section-subtitle">
+        Review year-by-year principal paydown versus cumulative interest allocation across your loan term.
+      </p>
+
+      <div class="amort-table-wrapper">
+        <table class="amort-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Beginning Balance</th>
+              <th>Principal Paid</th>
+              <th>Interest Paid</th>
+              <th>Ending Balance</th>
+            </tr>
+          </thead>
+          <tbody id="amortTableBody">
+            <!-- Dynamically populated via report.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Option 3: Financial Health & Guardrail Metrics -->
+    <div class="report-section-card">
+      <div class="report-section-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+        3. Financial Health & Guardrail Indicators
+      </div>
+      <p class="report-section-subtitle">
+        Evaluate your loan affordability using key personal finance benchmarks and rule-of-thumb ratios.
+      </p>
+
+      <div class="health-grid">
+        <!-- 28/36 DTI Rule -->
+        <div class="health-card">
+          <h4 style="color: var(--blue-900); margin-bottom: 0.5rem;">28/36 Housing Debt-to-Income (DTI) Check</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Financial advisors recommend keeping your housing debt payment under 28% of gross monthly income.
+          </p>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="monthlyIncomeInput" class="form-label" style="font-size: 0.85rem;">Gross Monthly Income ($)</label>
+            <input type="number" id="monthlyIncomeInput" class="form-input" value="6500" min="500" max="100000" step="250">
+          </div>
+          <div style="padding: 0.75rem; border-radius: var(--radius-sm); background: white; border: 1px solid var(--blue-200);">
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Payment-to-Income Ratio:</div>
+            <div style="font-size: 1.25rem; font-weight: 800; color: var(--blue-700);" id="dtiRatioText">7.5%</div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: #16a34a; margin-top: 0.25rem;" id="dtiStatusText">
+              ✓ Healthy Range (< 28%)
+            </div>
+          </div>
+        </div>
+
+        <!-- 20% PMI / Down Payment Equity Guardrail -->
+        <div class="health-card">
+          <h4 style="color: var(--blue-900); margin-bottom: 0.5rem;">Down Payment & Equity Guardrail</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            A 20% down payment eliminates Private Mortgage Insurance (PMI) on home loans and provides equity protection against depreciation.
+          </p>
+          <div style="padding: 0.75rem; border-radius: var(--radius-sm); background: white; border: 1px solid var(--blue-200);">
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Upfront Down Payment Ratio:</div>
+            <div style="font-size: 1.25rem; font-weight: 800; color: var(--blue-700);" id="equityRatioText">0.0%</div>
+            <div style="font-size: 0.8rem; font-weight: 700; margin-top: 0.25rem;" id="equityStatusText">
+              No Down Payment Applied
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 4: Side-by-Side Scenario Comparison -->
+    <div class="report-section-card">
+      <div class="report-section-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="12" y1="3" x2="12" y2="21"></line>
+        </svg>
+        4. Side-by-Side Scenario Comparison
+      </div>
+      <p class="report-section-subtitle">
+        Compare your baseline calculation against an alternative term or interest rate scenario side-by-side.
+      </p>
+
+      <div class="comparison-grid">
+        <div class="scenario-box">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--blue-600); text-transform: uppercase; margin-bottom: 0.5rem;">
+            Scenario A (Current Baseline)
+          </div>
+          <div style="font-size: 1.1rem; font-weight: 800; color: var(--blue-950);" id="scenAPrincipal">$15,000</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;" id="scenADetails">7.5% Interest | 3 Years</div>
+          <div style="font-size: 0.9rem; font-weight: 700; color: var(--blue-700);" id="scenAPayment">$489.27 / mo</div>
+          <div style="font-size: 0.85rem; color: var(--text-light);" id="scenAInterest">Total Interest: $4,340.50</div>
+        </div>
+
+        <div class="scenario-box" style="background: var(--blue-50);">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--blue-700); text-transform: uppercase; margin-bottom: 0.5rem;">
+            Scenario B (Shorter Term / Lower Rate)
+          </div>
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <select id="scenBTermSelect" class="form-input" style="font-size: 0.85rem; padding: 0.35rem 0.5rem;">
+              <option value="1">1 Year Term</option>
+              <option value="2">2 Year Term</option>
+              <option value="3" selected>3 Year Term</option>
+              <option value="5">5 Year Term</option>
+              <option value="15">15 Year Term</option>
+              <option value="30">30 Year Term</option>
+            </select>
+            <input type="number" id="scenBRateInput" class="form-input" value="6.5" min="1" max="30" step="0.25" style="font-size: 0.85rem; padding: 0.35rem 0.5rem; width: 100px;" placeholder="Rate %">
+          </div>
+          <div style="font-size: 0.9rem; font-weight: 700; color: var(--blue-700);" id="scenBPayment">$489.27 / mo</div>
+          <div style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.5rem;" id="scenBInterest">Total Interest: $4,340.50</div>
+          <div style="font-size: 0.82rem; font-weight: 700; color: var(--blue-800);" id="scenBDiffText">Difference: $0.00</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/report.js"></script>
+</body>
+</html>
