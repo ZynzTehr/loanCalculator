@@ -118,22 +118,23 @@ Updating currency formatters to dynamically set `minimumFractionDigits: 2` whene
 
 ---
 
-### Prompt 14: Loan Category Tab Switch Transition Animation
-**Prompt:**
-> i would like the transition for the personal, mortgage, auto, student loan tabs to be animated.
-
-**Goal/Context:** 
-Adding smooth CSS keyframe cross-fade & slide transitions (`.tab-change-anim`) and active tab button scale effects when switching between Personal, Mortgage, Auto, and Student loan categories.
-
----
-
-### Prompt 15: Sliding Active Tab Indicator & GitHub Sync
+### Prompt 14: Sliding Active Tab Indicator & GitHub Sync
 **Prompt:**
 > i would like the transition for the personal, mortgage, auto, student loan tabs to be animated.
 > push to github
 
 **Goal/Context:** 
 Adding a responsive sliding background pill indicator (`.tab-indicator`) that glides smoothly beneath Personal, Mortgage, Auto, and Student tabs when clicked, combined with input container cross-fade slide transitions (`.tab-change-anim`), and pushing all commits to GitHub.
+
+---
+
+### Prompt 15: Dynamic Navbar Active Link & Scroll Spy
+**Prompt:**
+> links in navbar do not show what link is active when clicked on. only calculator remains active.
+
+**Goal/Context:** 
+Adding click handlers and an `IntersectionObserver` scroll-spy in JavaScript to dynamically update `.active` state on header navbar links (Calculator, Features, Guide) as users click links or scroll through page sections.
+
 
 
 

@@ -491,6 +491,44 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => el.classList.add('is-visible'));
   }
 
+  // Navbar Scroll Spy & Dynamic Active Link Updating
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const pageSections = document.querySelectorAll('section[id]');
+
+  function setActiveNavLink(id) {
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === `#${id}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetId = link.getAttribute('href').replace('#', '');
+      if (targetId) {
+        setActiveNavLink(targetId);
+      }
+    });
+  });
+
+  if ('IntersectionObserver' in window && pageSections.length > 0) {
+    const navSpyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveNavLink(entry.target.id);
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '-70px 0px -40% 0px'
+    });
+
+    pageSections.forEach(section => navSpyObserver.observe(section));
+  }
+
   // Initialize Default Personal Loan Config
   applyLoanConfig('personal');
   const activeBtn = document.querySelector('.tab-btn.active');
