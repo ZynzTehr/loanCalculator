@@ -493,15 +493,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Navbar Scroll Spy & Dynamic Active Link Updating
   const navLinks = document.querySelectorAll('.nav-links a');
+  const brandLogo = document.querySelector('.brand-logo');
   const pageSections = document.querySelectorAll('section[id]');
 
   function setActiveNavLink(id) {
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === `#${id}`) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
+    // Reset active class on all nav links and brand logo
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (brandLogo) brandLogo.classList.remove('active');
+
+    if (id === 'hero' || !id) {
+      if (brandLogo) brandLogo.classList.add('active');
+    } else {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${id}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  }
+
+  if (brandLogo) {
+    brandLogo.addEventListener('click', () => {
+      setActiveNavLink('hero');
     });
   }
 
@@ -522,7 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, {
-      threshold: 0.3,
+      threshold: 0.25,
       rootMargin: '-70px 0px -40% 0px'
     });
 

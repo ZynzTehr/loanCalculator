@@ -188,6 +188,16 @@ Explaining how default parameter `isFloat = false` differentiates between intege
 **Goal/Context:** 
 Refactoring `syncControlPair` function calls to remove redundant `false` arguments and rely directly on ES6 default parameter syntax.
 
+---
+
+### Prompt 22: Hero Active State & FinPulse Brand Underline
+**Prompt:**
+> for the navbar, when page loads, calculator is active when it should not be, FinPulse should be. for this lets just have the word FinPulse underlined when active
+
+**Goal/Context:** 
+Setting `FinPulse` (brand logo) as the active navigation item when viewing the top/hero section (`id="hero"`), removing hardcoded active state on Calculator on page load, and adding CSS text-decoration underline formatting to the word `FinPulse` when active.
+
+
 
 
 
