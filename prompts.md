@@ -279,6 +279,16 @@ Optimizing Scenario B select box option text to concise labels (`1 Year (12m)`, 
 **Goal/Context:** 
 Wrapping Scenario B `#scenBRateInput` in `.input-number-wrapper` with `<span class="input-suffix">%</span>` matching the interest rate input design on `index.html`. Holding Git commit locally without pushing to remote GitHub as requested.
 
+---
+
+### Prompt 32: Print & PDF Pagination Optimization
+**Prompt:**
+> when i click to print/ save pdf, on the priview the document does not look right. the first section at the top, is all by itself with a lot of white space under it. the amortazation is cut off at the end of each page, and the other sections are by themselves as well with a lot of white space too. can you explain why that is?
+
+**Goal/Context:** 
+Explaining CSS print pagination mechanics and updating `@media print` rules in `css/report.css`. Replaced rigid `break-inside: avoid` on outer section cards with natural `break-inside: auto` to eliminate large white gaps. Added `overflow: visible` to table wrapper and `break-inside: avoid` to table rows (`tr`) to prevent amortization table truncation across page breaks.
+
+
 
 
 

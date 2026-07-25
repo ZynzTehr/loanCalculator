@@ -152,15 +152,88 @@
   background: var(--surface-white);
 }
 
-/* Print Overrides */
+/* Print Overrides & PDF Export Optimization */
 @media print {
-  .navbar, .report-nav-actions, .btn-primary, .btn-outline, #returnCalcBtn, #printReportBtn {
+  @page {
+    margin: 1.2cm;
+    size: portrait;
+  }
+
+  .navbar,
+  .report-nav-actions,
+  .btn-primary,
+  .btn-outline,
+  #returnCalcBtn,
+  #printReportBtn {
     display: none !important;
   }
-  body { background: white !important; }
-  .report-hero-card, .report-section-card {
+
+  body,
+  .report-body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .report-hero-card {
+    background: #0b1329 !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    box-shadow: none !important;
+    border: 1px solid #1e293b !important;
+    margin-bottom: 1.25rem !important;
+    padding: 1.25rem !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .report-section-card {
     box-shadow: none !important;
     border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important;
+    margin-bottom: 1.25rem !important;
+    padding: 1.25rem !important;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .report-section-title {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Amortization Table Pagination */
+  .amort-table-wrapper {
+    overflow: visible !important;
+  }
+
+  .amort-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  .amort-table tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .amort-table th,
+  .amort-table td {
+    padding: 0.45rem 0.65rem !important;
+  }
+
+  .health-card,
+  .scenario-box,
+  .savings-banner {
     break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
