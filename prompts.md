@@ -324,6 +324,16 @@ Fixing CSS stacking context layering in `css/styles.css`. Updated `.form-group` 
 **Goal/Context:** 
 Integrating Credit Card payoff as a 5th active loan type (`credit`) across `index.html`, `js/app.js`, `html/report.html`, and `js/report.js`. Added the 5th Credit Card tab, configured credit card payoff ranges (Default: $5,000 at 21.99% APR over 3 years), updated `typeLabels` and added Credit Card utilization guidance in Section 3 of `html/report.html` without altering existing text or layouts.
 
+---
+
+### Prompt 37: Fix Active Tab Indicator Alignment Offset on Reload
+**Prompt:**
+> i have an issue with the active state of the tabs for the loan calculator. once selected it looks like it has a white box around it and the text looks blue right?, if i refresh the page, when it reloads the white box is offset to the left somehow and if i re-click the tab again it goes back to centered the way it should be. can you explain to me what went wrong?
+
+**Goal/Context:** 
+Explaining how premature DOM element measurement (`getBoundingClientRect()`) before web fonts and stylesheets finish layout paint causes initial pixel offsets. Implemented multi-pass indicator alignment (`requestAnimationFrame`, `setTimeout`, and `window.onload`) in `js/app.js` to ensure perfect centering when pages reload.
+
+
 
 
 

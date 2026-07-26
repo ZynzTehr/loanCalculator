@@ -662,6 +662,14 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLoanConfig('personal');
   }
 
-  const activeBtn = document.querySelector('.tab-btn.active');
-  if (activeBtn) updateTabIndicator(activeBtn);
+  function refreshTabIndicator() {
+    const activeBtn = document.querySelector('.tab-btn.active');
+    if (activeBtn) updateTabIndicator(activeBtn);
+  }
+
+  // Multi-pass positioning to account for web font rendering and layout settle
+  refreshTabIndicator();
+  requestAnimationFrame(refreshTabIndicator);
+  setTimeout(refreshTabIndicator, 80);
+  window.addEventListener('load', refreshTabIndicator);
 });
