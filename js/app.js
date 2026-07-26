@@ -455,13 +455,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update Sliding Tab Indicator Position
   function updateTabIndicator(activeBtn) {
     const indicator = document.querySelector('.tab-indicator');
-    const tabsContainer = document.querySelector('.loan-type-tabs');
-    if (indicator && activeBtn && tabsContainer) {
-      const containerRect = tabsContainer.getBoundingClientRect();
-      const btnRect = activeBtn.getBoundingClientRect();
-      const offsetLeft = btnRect.left - containerRect.left;
-      indicator.style.transform = `translateX(${offsetLeft}px)`;
-      indicator.style.width = `${btnRect.width}px`;
+    if (indicator && activeBtn) {
+      const left = activeBtn.offsetLeft;
+      const width = activeBtn.offsetWidth;
+      indicator.style.transform = `translateX(${left}px)`;
+      indicator.style.width = `${width}px`;
+      indicator.classList.add('initialized');
     }
   }
 
