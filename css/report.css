@@ -394,14 +394,14 @@
 }
 
 .scen-rate-wrapper {
-  width: 90px;
+  width: 104px;
   flex-shrink: 0;
 }
 
 .scen-rate-input {
   width: 100%;
-  font-size: 0.82rem;
-  padding: 0.4rem 1.3rem 0.4rem 0.35rem;
+  font-size: 0.85rem;
+  padding: 0.4rem 1.15rem 0.4rem 0.45rem;
 }
 
 .scen-rate-suffix {

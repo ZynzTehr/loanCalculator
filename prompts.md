@@ -333,6 +333,16 @@ Integrating Credit Card payoff as a 5th active loan type (`credit`) across `inde
 **Goal/Context:** 
 Explaining how premature DOM element measurement (`getBoundingClientRect()`) before web fonts and stylesheets finish layout paint causes initial pixel offsets. Implemented multi-pass indicator alignment (`requestAnimationFrame`, `setTimeout`, and `window.onload`) in `js/app.js` to ensure perfect centering when pages reload.
 
+---
+
+### Prompt 38: Optimize Scenario B Rate Input Width for Two-Decimal Rates
+**Prompt:**
+> the interest rate in scenario b does not fit in its input box when it has two decimals. we should give it a bit more padding
+
+**Goal/Context:** 
+Increasing Scenario B rate input box container width from 90px to 104px and refining input padding in `css/report.css` so numbers with two decimal places (e.g. 21.99%) fit comfortably alongside the percentage suffix badge.
+
+
 
 
 
