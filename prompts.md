@@ -306,6 +306,16 @@ Explaining how stray text characters outside `</html>` get parsed by browser DOM
 **Goal/Context:** 
 Explaining the background behind rapid prototyping inline CSS and performing a total cleanup. Extracted all `style="..."` inline declarations from `index.html` into `css/styles.css` and from `html/report.html` into `css/report.css` using clean, semantic component classes.
 
+---
+
+### Prompt 35: Fix Tooltip Stacking Context & Z-Index Layering
+**Prompt:**
+> this tool tip @[/Users/zynztehr/Desktop/loanCalculator/index.html:L134-L141] goes behind the personal, mortgage tabs
+
+**Goal/Context:** 
+Fixing CSS stacking context layering in `css/styles.css`. Updated `.form-group` with `position: relative; z-index: 5` and `.form-group:hover` / `:focus-within` with `z-index: 50`. Updated `.tooltip-icon` to `z-index: 100` (`z-index: 1000` on hover/focus) and `.tooltip-box` to `z-index: 9999` so tooltips pop smoothly over tabs and headers.
+
+
 
 
 

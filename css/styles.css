@@ -276,12 +276,13 @@ a {
   align-items: center;
   justify-content: center;
   color: var(--blue-500);
-  cursor: help;
+  cursor: pointer;
   position: relative;
   margin-left: 0.35rem;
   transition: all 0.2s ease;
   vertical-align: middle;
   user-select: none;
+  z-index: 100;
 }
 
 .tooltip-icon:hover,
@@ -290,6 +291,7 @@ a {
   color: var(--blue-700);
   transform: scale(1.15);
   outline: none;
+  z-index: 1000;
 }
 
 .tooltip-box {
@@ -311,7 +313,7 @@ a {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-  z-index: 120;
+  z-index: 9999;
   text-align: left;
   white-space: normal;
 }
@@ -484,6 +486,13 @@ a {
 .form-group {
   margin-bottom: 1.75rem;
   transition: all 0.25s ease-in-out;
+  position: relative;
+  z-index: 5;
+}
+
+.form-group:hover,
+.form-group:focus-within {
+  z-index: 50;
 }
 
 .form-label-row {
