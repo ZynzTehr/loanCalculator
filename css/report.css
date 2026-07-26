@@ -238,56 +238,60 @@
   }
 }
 
-/* Extracted Report Component Classes */
-.btn-nav-action {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
+/* Report Main Container */
 .report-main-container {
   max-width: 1240px;
   margin: 2rem auto;
   padding: 0 1.5rem;
 }
 
-#reportTitle {
+/* Nav Action Buttons */
+.btn-nav-action {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Header Text Styles */
+.report-header-title {
   font-size: clamp(1.6rem, 4vw, 2.5rem);
   margin-bottom: 0.5rem;
   color: #ffffff;
   font-weight: 800;
 }
 
-#reportSubtitle {
+.report-header-subtitle {
   color: var(--blue-200);
   font-size: 0.95rem;
 }
 
-.savings-banner-label {
+/* Option 1 Impact Box */
+.impact-box-header {
   font-size: 0.85rem;
   color: var(--text-light);
   text-transform: uppercase;
   font-weight: 700;
 }
 
-#timeSavingsText {
+.impact-box-val {
   font-size: 0.95rem;
   color: var(--blue-900);
   font-weight: 600;
 }
 
-#newTermText {
+.impact-box-subtext {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-top: 0.25rem;
 }
 
-.health-card-title {
+/* Card Heading & Subtitle overrides */
+.card-sub-title {
   color: var(--blue-800);
   margin-bottom: 0.5rem;
 }
 
-.health-card-desc {
+.card-sub-text {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 1rem;
@@ -297,90 +301,84 @@
   margin-bottom: 1rem;
 }
 
-.form-label-sm {
+.form-label-compact {
   font-size: 0.85rem;
 }
 
-.health-result-box {
+.metric-inner-box {
   padding: 0.75rem;
   border-radius: var(--radius-sm);
   background: white;
   border: 1px solid var(--blue-200);
 }
 
-.health-result-label {
+.metric-inner-label {
   font-size: 0.85rem;
   color: var(--text-muted);
 }
 
-.health-result-value {
+.metric-inner-val {
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--blue-700);
 }
 
-#dtiStatusText, #equityStatusText {
+.metric-inner-status {
   font-size: 0.8rem;
   font-weight: 700;
   margin-top: 0.25rem;
 }
 
-#dtiStatusText {
+.metric-status-healthy {
   color: #16a34a;
 }
 
-.scenario-label {
+/* Scenario Cards Details */
+.scen-label {
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--blue-600);
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
 
-.scenario-label.scen-b-label {
-  color: var(--blue-700);
-}
+.scen-label-a { color: var(--blue-600); }
+.scen-label-b { color: var(--blue-700); }
 
-#scenAPrincipal {
+.scen-principal {
   font-size: 1.1rem;
   font-weight: 800;
   color: var(--blue-800);
 }
 
-#scenADetails {
+.scen-details {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 0.75rem;
 }
 
-#scenAPayment, #scenBPayment {
+.scen-payment {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--blue-700);
 }
 
-#scenAInterest {
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
-
-#scenBInterest {
+.scen-interest {
   font-size: 0.85rem;
   color: var(--text-light);
   margin-bottom: 0.5rem;
 }
 
-#scenBDiffText {
+.scen-diff {
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--blue-800);
 }
 
-.scenario-box.highlight {
+.scen-b-box {
   background: var(--blue-50);
 }
 
-.scenario-control-row {
+.scen-controls-row {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.75rem;

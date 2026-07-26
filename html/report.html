@@ -48,10 +48,10 @@
     <!-- Executive Summary Banner -->
     <div class="report-hero-card">
       <span class="report-badge" id="reportTypeBadge">Personal Loan Report</span>
-      <h1 id="reportTitle">
+      <h1 class="report-header-title" id="reportTitle">
         Detailed Financial Analysis & Breakdown
       </h1>
-      <p id="reportSubtitle">
+      <p class="report-header-subtitle" id="reportSubtitle">
         Comprehensive financial breakdown, amortization schedule, acceleration savings, and health metrics.
       </p>
 
@@ -106,12 +106,12 @@
         </div>
 
         <div class="savings-banner">
-          <div class="savings-banner-label">Accelerated Payoff Impact</div>
+          <div class="impact-box-header">Accelerated Payoff Impact</div>
           <div class="savings-highlight" id="interestSavingsText">Saves $1,250.00 in total interest</div>
-          <div id="timeSavingsText">
+          <div class="impact-box-val" id="timeSavingsText">
             Pays off loan 7 months earlier!
           </div>
-          <p id="newTermText">
+          <p class="impact-box-subtext" id="newTermText">
             New loan duration: 2 years 5 months (instead of 3 years).
           </p>
         </div>
@@ -165,18 +165,18 @@
       <div class="health-grid">
         <!-- 28/36 DTI Rule -->
         <div class="health-card">
-          <h4 class="health-card-title">Debt-to-Income (DTI) ratio Check</h4>
-          <p class="health-card-desc">
+          <h4 class="card-sub-title">Debt-to-Income (DTI) ratio Check</h4>
+          <p class="card-sub-text">
             Financial advisors recommend keeping your housing debt payments under 28% or less, and 36% overall of gross monthly income (income before taxes).
           </p>
           <div class="form-group form-group-compact">
-            <label for="monthlyIncomeInput" class="form-label form-label-sm">Gross Monthly Income ($)</label>
+            <label for="monthlyIncomeInput" class="form-label form-label-compact">Gross Monthly Income ($)</label>
             <input type="number" id="monthlyIncomeInput" class="form-input" value="6500" min="500" max="100000" step="250">
           </div>
-          <div class="health-result-box">
-            <div class="health-result-label">Payment-to-Income Ratio:</div>
-            <div class="health-result-value" id="dtiRatioText">7.5%</div>
-            <div id="dtiStatusText">
+          <div class="metric-inner-box">
+            <div class="metric-inner-label">Payment-to-Income Ratio:</div>
+            <div class="metric-inner-val" id="dtiRatioText">7.5%</div>
+            <div class="metric-inner-status metric-status-healthy" id="dtiStatusText">
               ✓ Healthy Range (< 28%)
             </div>
           </div>
@@ -184,14 +184,14 @@
 
         <!-- 20% PMI / Down Payment Equity Guardrail -->
         <div class="health-card">
-          <h4 class="health-card-title">Down Payment & Equity Guardrail</h4>
-          <p class="health-card-desc">
+          <h4 class="card-sub-title">Down Payment & Equity Guardrail</h4>
+          <p class="card-sub-text">
             A 20% down payment eliminates Private Mortgage Insurance (PMI) on home loans or prevent the need for GAP insurance on auto loans. This provides equity protection against depreciation.
           </p>
-          <div class="health-result-box">
-            <div class="health-result-label">Upfront Down Payment Ratio:</div>
-            <div class="health-result-value" id="equityRatioText">0.0%</div>
-            <div id="equityStatusText">
+          <div class="metric-inner-box">
+            <div class="metric-inner-label">Upfront Down Payment Ratio:</div>
+            <div class="metric-inner-val" id="equityRatioText">0.0%</div>
+            <div class="metric-inner-status" id="equityStatusText">
               No Down Payment Applied
             </div>
           </div>
@@ -214,20 +214,20 @@
 
       <div class="comparison-grid">
         <div class="scenario-box">
-          <div class="scenario-label">
+          <div class="scen-label scen-label-a">
             Scenario A (Current Baseline)
           </div>
-          <div id="scenAPrincipal">$15,000</div>
-          <div id="scenADetails">7.5% Interest | 3 Years</div>
-          <div id="scenAPayment">$489.27 / month</div>
-          <div id="scenAInterest">Total Interest: $4,340.50</div>
+          <div class="scen-principal" id="scenAPrincipal">$15,000</div>
+          <div class="scen-details" id="scenADetails">7.5% Interest | 3 Years</div>
+          <div class="scen-payment" id="scenAPayment">$489.27 / month</div>
+          <div class="scen-interest" id="scenAInterest">Total Interest: $4,340.50</div>
         </div>
 
-        <div class="scenario-box highlight">
-          <div class="scenario-label scen-b-label">
+        <div class="scenario-box scen-b-box">
+          <div class="scen-label scen-label-b">
             Scenario B (Shorter Term / Lower Rate)
           </div>
-          <div class="scenario-control-row">
+          <div class="scen-controls-row">
             <select id="scenBTermSelect" class="form-input scen-term-select">
               <option value="1">1 Year (12 months)</option>
               <option value="2">2 Years (24 months)</option>
@@ -244,9 +244,9 @@
               <span class="input-suffix scen-rate-suffix">%</span>
             </div>
           </div>
-          <div id="scenBPayment">$489.27 / month</div>
-          <div id="scenBInterest">Total Interest: $4,340.50</div>
-          <div id="scenBDiffText">Difference: $0.00</div>
+          <div class="scen-payment" id="scenBPayment">$489.27 / month</div>
+          <div class="scen-interest" id="scenBInterest">Total Interest: $4,340.50</div>
+          <div class="scen-diff" id="scenBDiffText">Difference: $0.00</div>
         </div>
       </div>
     </div>

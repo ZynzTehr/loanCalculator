@@ -75,30 +75,30 @@
         </div>
 
         <!-- Hero Preview Banner / Visual Card -->
-        <div class="hero-card-preview reveal-scale initial-load delay-200" style="background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-blue); box-shadow: var(--shadow-lg); padding: 2.25rem;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--blue-600);"></div>
-              <span style="font-weight: 700; color: var(--blue-900);">Quick Estimate Preview</span>
+        <div class="hero-card-preview reveal-scale initial-load delay-200">
+          <div class="preview-header-row">
+            <div class="preview-title-group">
+              <div class="preview-dot"></div>
+              <span class="preview-title-text">Quick Estimate Preview</span>
             </div>
-            <span style="font-size: 0.8rem; background: var(--blue-100); color: var(--blue-800); padding: 0.25rem 0.65rem; border-radius: var(--radius-full); font-weight: 600;">Sample Loan</span>
+            <span class="preview-chip">Sample Loan</span>
           </div>
 
-          <div style="background: var(--blue-50); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--blue-200); margin-bottom: 1.5rem;">
-            <span style="font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Estimated Monthly Payment</span>
-            <div style="font-size: 2.5rem; font-weight: 800; color: var(--blue-800); line-height: 1.2; margin-top: 0.2rem;">
-              $466 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">/ month</span>
+          <div class="preview-amount-card">
+            <span class="preview-amount-label">Estimated Monthly Payment</span>
+            <div class="preview-amount-val">
+              $466 <span class="preview-amount-subtext">/ month</span>
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
-            <div style="padding: 0.85rem; background: #f8fafc; border-radius: var(--radius-sm);">
-              <small style="color: var(--text-light); display: block;">Loan Amount</small>
-              <strong style="color: var(--blue-950); font-weight: 700;">$25,000</strong>
+          <div class="preview-stats-grid">
+            <div class="preview-stat-item">
+              <small class="preview-stat-label">Loan Amount</small>
+              <strong class="preview-stat-val">$25,000</strong>
             </div>
-            <div style="padding: 0.85rem; background: #f8fafc; border-radius: var(--radius-sm);">
-              <small style="color: var(--text-light); display: block;">Interest Rate</small>
-              <strong style="color: var(--blue-950); font-weight: 700;">4.5% APR</strong>
+            <div class="preview-stat-item">
+              <small class="preview-stat-label">Interest Rate</small>
+              <strong class="preview-stat-val">4.5% APR</strong>
             </div>
           </div>
         </div>
@@ -184,7 +184,7 @@
                 </div>
               </div>
               <div class="net-loan-note" id="netLoanNote">
-                Net Financing Principal: <strong id="netLoanAmountText" class="net-loan-amount">$0</strong>
+                Net Financing Principal: <strong id="netLoanAmountText" class="net-loan-amount-text">$0</strong>
                 <span class="tooltip-icon" tabindex="0" aria-label="Explanation of Net Principal">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
@@ -238,7 +238,7 @@
                     <span class="tooltip-box">The total duration (in years or months) over which you agree to repay the loan balance.</span>
                   </span>
                 </label>
-                <div class="term-input-group">
+                <div class="term-input-row">
                   <input type="number" id="loanTerm" class="form-input" value="3" min="1" max="7" step="1">
                   <select id="termUnit" class="form-input term-unit-select">
                     <option value="years" selected>Years</option>
@@ -312,7 +312,7 @@
                 <small>Total Interest</small>
                 <strong id="totalInterest">$4,340</strong>
               </div>
-              <div class="stat-box full-width">
+              <div class="stat-box stat-box-full">
                 <small>Total Overall Payment</small>
                 <strong id="totalPayment">$29,340</strong>
               </div>
@@ -442,7 +442,7 @@
   <!-- Footer -->
   <footer>
     <div class="footer-container">
-      <div class="brand-logo brand-logo-light">
+      <div class="brand-logo">
         <div class="logo-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="1" x2="12" y2="23"></line>
@@ -451,7 +451,7 @@
         </div>
         FinPulse
       </div>
-      <p class="footer-description">
+      <p class="footer-tagline">
         Empowering smart personal finance decisions through clean, transparent, and accurate loan calculations.
       </p>
     </div>

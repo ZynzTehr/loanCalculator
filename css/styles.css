@@ -926,15 +926,148 @@ footer {
   color: var(--blue-400);
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .calculator-card {
-    grid-template-columns: 1fr;
-  }
+/* Footer Overrides */
+footer .brand-logo {
+  color: #ffffff;
+}
+
+footer .footer-tagline {
+  font-size: 0.9rem;
+  max-width: 400px;
+  color: var(--blue-300);
+}
+
+/* Stat Box Full Width Span */
+.stat-box-full {
+  grid-column: span 2;
+}
+
+/* Net Loan Note */
+.net-loan-note {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.45rem;
+  font-weight: 500;
+}
+
+.net-loan-amount-text {
+  color: var(--blue-700);
+}
+
+/* Action Full Width Button */
+.btn-full-width {
+  width: 100%;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Hero Preview Banner Component */
+.hero-card-preview {
+  background: var(--surface-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-blue);
+  box-shadow: var(--shadow-lg);
+  padding: 2.25rem;
+}
+
+.preview-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.preview-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.preview-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--blue-600);
+}
+
+.preview-title-text {
+  font-weight: 700;
+  color: var(--blue-900);
+}
+
+.preview-chip {
+  font-size: 0.8rem;
+  background: var(--blue-100);
+  color: var(--blue-800);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+}
+
+.preview-amount-card {
+  background: var(--blue-50);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--blue-200);
+  margin-bottom: 1.5rem;
+}
+
+.preview-amount-label {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.preview-amount-val {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--blue-800);
+  line-height: 1.2;
+  margin-top: 0.2rem;
+}
+
+.preview-amount-subtext {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.preview-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.preview-stat-item {
+  padding: 0.85rem;
+  background: #f8fafc;
+  border-radius: var(--radius-sm);
+}
+
+.preview-stat-label {
+  color: var(--text-light);
+  display: block;
+}
+
+.preview-stat-val {
+  color: var(--blue-950);
+  font-weight: 700;
+}
+
+/* Term Input Row */
+.term-input-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.term-unit-select {
+  width: 100px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 @media (max-width: 640px) {
@@ -1030,48 +1163,4 @@ footer {
   .results-header {
     padding: 1.1rem 0.85rem;
   }
-}
-
-/* Extracted Utility & Component Classes */
-.net-loan-note {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  margin-top: 0.45rem;
-  font-weight: 500;
-}
-
-.net-loan-amount {
-  color: var(--blue-700);
-}
-
-.term-input-group {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.term-unit-select {
-  width: 100px;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.stat-box.full-width {
-  grid-column: span 2;
-}
-
-.btn-full-width {
-  width: 100%;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.brand-logo-light {
-  color: #ffffff;
-}
-
-.footer-description {
-  font-size: 0.9rem;
-  max-width: 400px;
-  color: var(--blue-300);
 }

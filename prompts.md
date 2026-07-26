@@ -299,12 +299,12 @@ Explaining how stray text characters outside `</html>` get parsed by browser DOM
 
 ---
 
-### Prompt 34: Refactor Static Inline Styles into External CSS Classes
+### Prompt 34: Complete Inline CSS Refactoring across HTML Pages
 **Prompt:**
-> on index.html and report.html i see inline css styles. is there a reason for that? [...] yes please
+> on index.html and report.html i see inline css styles. is there a reason for that?
 
 **Goal/Context:** 
-Refactoring all static inline styles out of `index.html` and `html/report.html` into clean, modular CSS component & utility classes in `css/styles.css` and `css/report.css`. Preserving only dynamic JS-driven inline rules (`display: none` toggle, `width: %` progress bars).
+Explaining the background behind rapid prototyping inline CSS and performing a total cleanup. Extracted all `style="..."` inline declarations from `index.html` into `css/styles.css` and from `html/report.html` into `css/report.css` using clean, semantic component classes.
 
 
 
