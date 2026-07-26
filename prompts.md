@@ -315,6 +315,16 @@ Explaining the background behind rapid prototyping inline CSS and performing a t
 **Goal/Context:** 
 Fixing CSS stacking context layering in `css/styles.css`. Updated `.form-group` with `position: relative; z-index: 5` and `.form-group:hover` / `:focus-within` with `z-index: 50`. Updated `.tooltip-icon` to `z-index: 100` (`z-index: 1000` on hover/focus) and `.tooltip-box` to `z-index: 9999` so tooltips pop smoothly over tabs and headers.
 
+---
+
+### Prompt 36: Add Credit Card Payoff Option to Calculator & Financial Literacy Report
+**Prompt:**
+> lets add all 4 options, but go through report.html so that the text that is there already does not change too drastically to accommodate these new changes.
+
+**Goal/Context:** 
+Integrating Credit Card payoff as a 5th active loan type (`credit`) across `index.html`, `js/app.js`, `html/report.html`, and `js/report.js`. Added the 5th Credit Card tab, configured credit card payoff ranges (Default: $5,000 at 21.99% APR over 3 years), updated `typeLabels` and added Credit Card utilization guidance in Section 3 of `html/report.html` without altering existing text or layouts.
+
+
 
 
 

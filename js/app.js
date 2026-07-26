@@ -165,6 +165,34 @@ document.addEventListener('DOMContentLoaded', () => {
         { label: '20 Yrs', value: 20 }
       ],
       disclaimer: 'Note: Assumes immediate principal repayment. Does not include interest capitalization during in-school or grace periods.'
+    },
+    credit: {
+      amountLabel: 'Credit Card Balance',
+      amountMin: 500,
+      amountMax: 30000,
+      amountStep: 500,
+      amountDefault: 5000,
+      presets: [1000, 3000, 5000, 10000],
+
+      hasDownPayment: false,
+
+      rateMin: 9.9,
+      rateMax: 35.9,
+      rateStep: 0.1,
+      rateDefault: 21.99,
+
+      termMin: 1,
+      termMax: 5,
+      termStep: 1,
+      termDefault: 3,
+      unit: 'years',
+      termPresets: [
+        { label: '1 Yr', value: 1 },
+        { label: '2 Yrs', value: 2 },
+        { label: '3 Yrs', value: 3 },
+        { label: '5 Yrs', value: 5 }
+      ],
+      disclaimer: 'Note: Credit card calculations assume a fixed monthly payoff strategy. Does not factor in ongoing new purchases or penalty APR spikes.'
     }
   };
 

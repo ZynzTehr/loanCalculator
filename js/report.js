@@ -123,7 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
     personal: 'Personal Loan',
     mortgage: 'Home Mortgage Loan',
     auto: 'Auto Financing Loan',
-    student: 'Student Loan'
+    student: 'Student Loan',
+    credit: 'Credit Card Payoff'
   };
 
   if (reportTypeBadge) reportTypeBadge.textContent = typeLabels[calcState.activeType] || 'Loan Analysis';
@@ -291,6 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
         equityStatusText.textContent = '⚠ Below 20% Down Payment (Higher depreciation risk).';
         equityStatusText.style.color = '#d97706';
       }
+    } else if (calcState.activeType === 'credit') {
+      equityStatusText.textContent = 'Credit Card Payoff: Recommends keeping revolving balances below 30% of your total credit limit.';
+      equityStatusText.style.color = 'var(--blue-700)';
     } else {
       equityStatusText.textContent = 'Down Payment applies to Mortgages & Auto Financing.';
       equityStatusText.style.color = 'var(--text-light)';
