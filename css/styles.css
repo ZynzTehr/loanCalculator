@@ -1031,3 +1031,47 @@ footer {
     padding: 1.1rem 0.85rem;
   }
 }
+
+/* Extracted Utility & Component Classes */
+.net-loan-note {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.45rem;
+  font-weight: 500;
+}
+
+.net-loan-amount {
+  color: var(--blue-700);
+}
+
+.term-input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.term-unit-select {
+  width: 100px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.stat-box.full-width {
+  grid-column: span 2;
+}
+
+.btn-full-width {
+  width: 100%;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.brand-logo-light {
+  color: #ffffff;
+}
+
+.footer-description {
+  font-size: 0.9rem;
+  max-width: 400px;
+  color: var(--blue-300);
+}

@@ -297,6 +297,16 @@ Explaining CSS print pagination mechanics and updating `@media print` rules in `
 **Goal/Context:** 
 Explaining how stray text characters outside `</html>` get parsed by browser DOM engines as visible text nodes. Removed accidental trailing `l>` typo from line 258 of `html/report.html`.
 
+---
+
+### Prompt 34: Refactor Static Inline Styles into External CSS Classes
+**Prompt:**
+> on index.html and report.html i see inline css styles. is there a reason for that? [...] yes please
+
+**Goal/Context:** 
+Refactoring all static inline styles out of `index.html` and `html/report.html` into clean, modular CSS component & utility classes in `css/styles.css` and `css/report.css`. Preserving only dynamic JS-driven inline rules (`display: none` toggle, `width: %` progress bars).
+
+
 
 
 
