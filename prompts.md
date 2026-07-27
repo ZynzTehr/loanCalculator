@@ -101,7 +101,7 @@ Reverting standard scroll reveal duration back to snappy `0.75s` to eliminate sc
 
 ### Prompt 12: Dynamic Cents Formatting
 **Prompt:**
-> I went over the calculations you make for loan. Although they are correct, they do not show decimals. Why did you choose that? Yes, let's update to display decimals, but keep the number itself when decimals are 0, i.e., 15,000 versus 15,000.00.
+> I went over the calculations you make for loan. Although they are correct when rounding up, they do not show decimals. Why did you choose that? Yes, let's update to display decimals, but keep the number itself when decimals are 0, i.e., 15,000 versus 15,000.00.
 
 **Goal/Context:** 
 Updating number and currency formatters to display decimal places for cents while omitting `.00` on whole integer amounts.
@@ -219,7 +219,7 @@ Implementing Option 5 in-line educational glossary tooltips (`?` icons) on key f
 
 ### Prompt 25: Multi-Page Architecture & 4-Option Financial Literacy Expansion
 **Prompt:**
-> I want to implement all 4 options, but I want to use the print/save calculation button to go to another page where all these options would be. I just don't know what to label this button as. This new page is the one that should have the print/save calculation button. I also want a button on this new page as well to come back to the calculator, but with a caveat. I want the button to come back to the calculator to be able to return to the calculator with the inputs the user left in the calculator before moving to the new page where we are going to implement these 4 options. Let me organize the directory in this project as well. Let's create a css and javascript folder, move the proper files there, and update the HTML pages to reflect these changes.
+> I want to implement all 4 options, but I want to use the print/save calculation button to go to another page where all these options would be. I just don't know what to label this button as. This new page is the one that should have the print/save calculation button. I also want a button on this new page as well to come back to the calculator, but with a caveat, I want the button to come back to the calculator to be able to return to the calculator with the inputs the user left in the calculator before moving to the new page where we are going to implement these 4 options. Lets organize the directory in this project as well. Let's create a css and javascript folder, move the proper files there, and update the HTML pages to reflect these changes.
 
 **Goal/Context:** 
 Re-organizing project files into `css/styles.css` and `js/app.js`, relabeling the primary action button to "View Detailed Analysis & Report", persisting calculator state via `localStorage`, creating `report.html` & `js/report.js` with all 4 financial literacy options (Extra Payment Simulator, Amortization Schedule, DTI & 20% PMI Health Ratios, and Side-by-Side Scenario Comparisons), and providing a seamless "Return to Calculator" button that restores inputs.
