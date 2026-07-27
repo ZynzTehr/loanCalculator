@@ -693,7 +693,8 @@ a {
   word-break: break-word;
 }
 
-.monthly-payment-amount span.currency, #monthlyPayment-text {
+.monthly-payment-amount span.currency, 
+.monthly-payment-text {
   font-size: clamp(1.2rem, 4vw, 2rem);
   color: var(--blue-300);
 }
