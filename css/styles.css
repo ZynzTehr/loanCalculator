@@ -408,6 +408,16 @@ a {
   grid-template-columns: 1.2fr 1fr;
   gap: clamp(1.5rem, 4vw, 3rem);
   position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.calculator-inputs,
+.results-container {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Loan Type Selector Tabs */
@@ -671,14 +681,16 @@ a {
 }
 
 .monthly-payment-amount {
-  font-size: clamp(1.75rem, calc(8vw + 1rem), 2.25rem);
+  font-size: clamp(1.4rem, 5.5vw, 2.25rem);
   font-weight: 800;
   line-height: 1.1;
   margin-top: 0.25rem;
-  color:  var(--blue-300);
+  color: var(--blue-300);
   display: flex;
   align-items: baseline;
   gap: 0.2rem;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 
 .monthly-payment-amount span.currency {
