@@ -1084,6 +1084,44 @@ footer .footer-tagline {
   padding-right: 0.5rem;
 }
 
+/* Responsive Grid Stacking for Tablets and Mobile (992px, 768px, 640px, 425px, 375px, 320px) */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .calculator-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero-card-preview {
+    width: 100%;
+    max-width: 100%;
+  }
+  .results-container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3.5rem 1.25rem 2.5rem;
+  }
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .calculator-card {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 1.5rem 1.15rem;
+  }
+  .section-header {
+    margin-bottom: 2rem;
+  }
+}
+
 @media (max-width: 640px) {
   .nav-links {
     display: none;
