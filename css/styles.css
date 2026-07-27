@@ -434,15 +434,15 @@ a {
 
 .tab-indicator {
   position: absolute;
-  top: 0.35rem;
-  bottom: 0.35rem;
+  top: 0;
   left: 0;
   width: 0;
+  height: 0;
   opacity: 0;
   background: var(--surface-white);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), width 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), width 0.32s cubic-bezier(0.16, 1, 0.3, 1), height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
   pointer-events: none;
   z-index: 1;
 }
@@ -694,7 +694,7 @@ a {
 }
 
 .monthly-payment-amount span.currency, 
-.monthly-payment-text {
+.monthly-payment-amount span.text {
   font-size: clamp(1.2rem, 4vw, 2rem);
   color: var(--blue-300);
 }
@@ -1144,16 +1144,20 @@ footer .footer-tagline {
     flex-wrap: wrap;
   }
   .loan-type-tabs {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .loan-type-tabs::-webkit-scrollbar {
-    display: none;
+    flex-wrap: wrap;
+    gap: 0.3rem;
   }
   .tab-btn {
+    flex: 1 1 calc(33.333% - 0.3rem);
+    min-width: 0;
     white-space: nowrap;
-    flex-shrink: 0;
+    text-align: center;
+    padding: 0.55rem 0.25rem;
+    font-size: 0.8rem;
+  }
+  .tab-btn[data-type="student"],
+  .tab-btn[data-type="credit"] {
+    flex: 1 1 calc(50% - 0.3rem);
   }
 }
 

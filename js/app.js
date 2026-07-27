@@ -457,9 +457,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicator = document.querySelector('.tab-indicator');
     if (indicator && activeBtn) {
       const left = activeBtn.offsetLeft;
+      const top = activeBtn.offsetTop;
       const width = activeBtn.offsetWidth;
-      indicator.style.transform = `translateX(${left}px)`;
+      const height = activeBtn.offsetHeight;
+      indicator.style.transform = `translate(${left}px, ${top}px)`;
       indicator.style.width = `${width}px`;
+      indicator.style.height = `${height}px`;
       indicator.classList.add('initialized');
     }
   }
