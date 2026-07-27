@@ -1029,6 +1029,12 @@ footer .footer-tagline {
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .preview-amount-card {
@@ -1206,6 +1212,20 @@ footer .footer-tagline {
   }
   .hero-card-preview {
     padding: 1.25rem;
+  }
+  .preview-header-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .preview-chip {
+    font-size: 0.76rem;
+    padding: 0.25rem 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 }
 
